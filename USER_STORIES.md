@@ -24,34 +24,46 @@ As a buyer, I want to have the ability to add items to my cart
 * user_name
 * user_email
 
-(user_address??)
-
 - REVIEWS_TABLE
 * PK - review_id
-* FK - user_id
+* FK - for_user_id
+* FK - from_user_id
+* FK - product_id
 * review_rating
 * review_comments
 
-- CART_TABLE
-* PK - cart_id
-* FK - product_id
-* FK - user_id
-* cost??
-
 - OFFERS_TABLE
-* PK - offer_id
-* FK - user_id
+* PK - Offer_id
+* FK - buyer_id
 * FK - product_id
+* offer_price
+* offer_status
 
 ## PAGES
-- Main Page
-- Buy Page (browse products)
-- Sellers Page
-- Shopping Cart Page
+- Main Page 
+- Buy Page (Single Page - Browse all products or by filter)
+- Sellers Page (Single Page - Post New Product, View Other Posts, Delete Posts, Edit Posts, Bid Accept or Decline)
+- Shopping Cart Page - (Image, Title, Price, Remove Product, Total, Checkout button)
 
 ## TIMELINE
 [] Create Tables
-[] Create Data
+[] Create Data (20 Products, 4 Users (2 Sellers), 4 Reviews)
 [] Download Relevant Images/ Fonts etc
 [] Create Web Pages
 [] Make It All Work
+[] When offer is accepted : * Retire or Cancel any other offers
+                            * Product no longer active
+
+## NAME
+- Buy & Sell (BS)
+- Shopnbuy
+
+## TASKS FOR TODAY
+- Data Input - (Kim)
+- Database Queries (Herv, Dylan)
+
+## STRETCH
+- STRETCH - Reviews Table
+- STRETCH - Users Profile Page
+- STRETCH - Brand
+- STRETCH - Search Bar
