@@ -1,9 +1,6 @@
 const express = require('express');
 const router  = express.Router();
 
-// 1 logged in user id is 1 filter out user id 1 in proudct
-// add dynamic filter in query filter by categroy if (category ) add where else nothing
-
 
 module.exports = (db, userId) => {
   router.get("/", (req, res) => {
