@@ -1,19 +1,31 @@
-footer table {
+footer ul {
   width: 100%;
-  display: table;
-  table-layout: fixed;
-  border-collapse: separate;
-  border-spacing: 1em;
+
+  padding-right: 10%;
+  padding-left: 10%;
+
+  display: flex;
+    align-items: stretch; /* Default */
+    justify-content: space-between;
+  color: white;
+  // text-align: bottom;
+  padding: 14px 16px;
+  vertical-align: middle;
 }
 
-footer tr {
-  margin-top: 10em;
-  padding: 1em;
-  width: 100%;
-  height: 20em;
+footer ul img {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+
+  background-size: cover;
+  background-color: rgb(153, 201, 202);
+
+  border-radius: 20px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
 }
 
-footer td {
-padding: 1em;
-width: 100%;
+footer li {
+  padding-left: 2%;
 }
