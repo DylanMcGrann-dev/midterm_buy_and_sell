@@ -6,12 +6,66 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <!-- Top nav bar (fixed) -->
+    <nav>
+      <ul>
+        <!-- <li><img src="\images\logo.png"></li> -->
+        <li><label for="logo">BS</label></li>
+        <li><a href="/main">HOME</a></li>
+        <li><a href="/shop">SHOP MENS</a></li>
+        <li><a href="/shop">SHOP WOMENS</a></li>
+        <li><a href="/shop">SHOP ALL</a></li>
+        <li style="float:right"><a href="/signup">SIGNUP</a></li>
+        <li style="float:right"><a href="/login">LOGIN</a></li>
+    </ul>
+    </nav>
+
+    <header>
+      <div class="shopnow">
+      <table>
+      <tr>
+        <th><img src="\images\male.png" ></th>
+        <th><img src="\images\female.png"></th>
+        <th><img src="\images\malefemale.png"></th>
+      </tr>
+      <tr>
+        <td>SHOP MENS</td>
+        <td>SHOP WOMENS</td>
+        <td>SHOP ALL</td>
+      </tr>
+    </table>
+    <marquee behaviour = "scroll" direction = "left">
+      <img src="\images\male.png" width = "125" height = "102">
+      <img src="\images\female.png" width = "125" height = "102">
+      <img src="\images\malefemale.png" width = "125" height = "102">
+      <img src="\images\male.png" width = "125" height = "102">
+      <img src="\images\female.png" width = "125" height = "102">
+    </marquee>
+  </div>
+    </header>
+    <footer>
+      <table>
+      <tr>
+        <th> SUPPORT</th>
+        <th>CUSTOMER SERVICE</th>
+      </tr>
+      <tr>
+        <td>Shipping & Delivery</td>
+        <td>EMAIL: help@BS.ca</td>
+      </tr>
+      <tr></tr>
+        <td>Return Policy</td>
+        <td>1-800-000-HELP</td>
+      </tr>
+    </footer>
   </body>
 </html>

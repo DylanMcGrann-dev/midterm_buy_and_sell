@@ -1,0 +1,39 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  vertical-align: middle;
+  padding-top: 50px;
+
+}
+
+li label {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+
+  width: 90px;
+  height: 82px;
+  font-size: 60pt;
+
+  padding-right: 1.5em;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: rgb(153, 201, 202)
+}
