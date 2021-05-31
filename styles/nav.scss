@@ -35,3 +35,97 @@ nav {
 .navLink:hover {
   background: teal;
 }
+// * {
+//   margin: 0px;
+//   padding: 0px;
+//   box-sizing: border-box;
+// }
+
+// nav {
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+//   min-height: 12vh;
+//   background-color: #101010;
+//   font-family: 'Poppins', sans-serif;
+// }
+
+// .logo h1 {
+//   color: white;
+//   font-family: 'Poppins', sans-serif;
+//   font-size: 45px;
+//   font-weight: 200;
+//   letter-spacing: 1px;;
+// }
+
+// .logo h1 span {
+//   font-weight: 800;
+// }
+
+// .credentials {
+//   display: flex;
+//   float: right;
+// }
+
+// .credentials li {
+//   list-style: none;
+// }
+
+// .credentials a {
+//   color: white;
+//   text-decoration: none;
+//   letter-spacing: 2px;;
+//   font-weight: 400;
+//   font-size: 16pt;
+//   padding: 1em;
+// }
+
+// .nav-links {
+//   display: flex;
+//   float: left;
+//   width: 60%;
+// }
+
+// .nav-links li {
+//   list-style: none;
+// }
+
+// .nav-links a {
+//   color: white;
+//   text-decoration: none;
+//   letter-spacing: 2px;
+//   font-weight: 400;
+//   font-size: 16pt;
+//   padding: 1.5em;
+// }
+
+// .nav-links signup {
+//   float: right;
+// }
+
+// .nav-links a:hover {
+//   background-color:rgb(153, 201, 202);
+//   padding-left: 1em;
+//   padding-right: 1em;
+//   padding-top: 2em;
+//   padding-bottom: 4em;
+// }
+
+// .credentials a:hover {
+//   background-color:rgb(153, 201, 202);
+//   padding-left: 1em;
+//   padding-right: 1em;
+//   padding-top: 2em;
+//   padding-bottom: 4em;
+// }
+
+// .collapse {
+//   display: none;
+// }
+
+// .collapse div {
+//   width: 25px;
+//   height: 3px;
+//   background-color: white;
+//   margin: 5px;
+// }

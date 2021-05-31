@@ -3,13 +3,20 @@
   <head>
     <title>Home Page</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- App CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
 
-
+    <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
@@ -17,43 +24,87 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <%- include("partials/_header") %>
+    <!-- <nav>
+      <div class="logo">
+        <h1>BUY<span>SELL</span></h1>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="/main">HOME</a></li>
+        <li><a href="/shop">MENS</a></li>
+        <li><a href="/shop">WOMENS</a></li>
+        <li><a href="/shop">ALL</a></li>
+      </ul>
+
+      <ul class="credentials">
+        <li><a href="/login">LOGIN</a></li>
+        <li><a href="/signup">SIGNUP</a></li>
+      </ul>
+
+      <div class="collapse">
+        <div class ="line1"></div>
+        <div class ="line2"></div>
+        <div class ="line3"></div>
+      </div>
+    </nav> -->
+
     <header>
       <div class="shopnow">
       <table>
       <tr>
-        <th><img src="\images\male.png" ></th>
-        <th><img src="\images\female.png"></th>
-        <th><img src="\images\malefemale.png"></th>
+        <th><img src="\images\mens.jpeg"></th>
+        <th><img src="\images\womens.jpeg"></th>
+        <th><img src="\images\unisex.jpeg"></th>
       </tr>
+
       <tr>
         <td>SHOP MENS</td>
         <td>SHOP WOMENS</td>
         <td>SHOP ALL</td>
       </tr>
     </table>
+
     <marquee behaviour = "scroll" direction = "left">
-      <img src="\images\male.png" width = "125" height = "102">
-      <img src="\images\female.png" width = "125" height = "102">
-      <img src="\images\malefemale.png" width = "125" height = "102">
-      <img src="\images\male.png" width = "125" height = "102">
-      <img src="\images\female.png" width = "125" height = "102">
+      <img src="\images\male.png">
+      <img src="\images\female.png">
+      <img src="\images\malefemale.png">
+      <img src="\images\male.png">
+      <img src="\images\female.png">
     </marquee>
   </div>
     </header>
+
     <footer>
-      <table>
-      <tr>
-        <th> SUPPORT</th>
-        <th>CUSTOMER SERVICE</th>
-      </tr>
-      <tr>
-        <td>Shipping & Delivery</td>
-        <td>EMAIL: help@BS.ca</td>
-      </tr>
-      <tr></tr>
-        <td>Return Policy</td>
-        <td>1-800-000-HELP</td>
-      </tr>
+      <div class="footer">
+        <div class="inner_footer">
+          <div class="footer_fourth">
+            <h1>Need Help</h1>
+            <a href="#">Terms &amp; Conditions</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+
+          <div class="footer_fourth">
+            <h1>FAQs</h1>
+            <a href="#">Common questions</a>
+            <a href="#">Something</a>
+          </div>
+
+          <div class="footer_fourth">
+            <h1>SHIPPING & DELIVERY</h1>
+            <a href="#">Shipping</a>
+            <a href="#">Delivery Times</a>
+            <a href="#">Returns</a>
+          </div>
+
+          <div class="footer_fourth">
+            <h1>CONTACT US</h1>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
