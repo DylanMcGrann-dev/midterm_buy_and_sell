@@ -1,131 +1,131 @@
 
-nav {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 5px;
-  justify-content: space-between;
-}
-
-.spanLeft {
-  width: 600px;
-  display: flex;
-  justify-content: space-around;
-}
-.spanRight {
-  display: flex;
-  justify-content: space-evenly;
-  width: 15em;
-}
-
-.navLink {
-  display: flex;
-  align-items: flex-end;
-  margin-top: 50px;
-  justify-content: center;
-  color: white;
-  text-decoration: none;
-  width: -webkit-fill-available;
-  background-size: 80px 20px;
-}
-.logo {
-  color: white;
-  font-size: xxx-large;
-}
-.navLink:hover {
-  background: teal;
-}
-// * {
-//   margin: 0px;
-//   padding: 0px;
-//   box-sizing: border-box;
-// }
-
 // nav {
 //   display: flex;
+//   flex-direction: row;
+//   width: 100%;
+//   padding: 5px;
+//   justify-content: space-between;
+// }
+
+// .spanLeft {
+//   width: 600px;
+//   display: flex;
 //   justify-content: space-around;
-//   align-items: center;
-//   min-height: 12vh;
-//   background-color: #101010;
-//   font-family: 'Poppins', sans-serif;
 // }
-
-// .logo h1 {
-//   color: white;
-//   font-family: 'Poppins', sans-serif;
-//   font-size: 45px;
-//   font-weight: 200;
-//   letter-spacing: 1px;;
-// }
-
-// .logo h1 span {
-//   font-weight: 800;
-// }
-
-// .credentials {
+// .spanRight {
 //   display: flex;
-//   float: right;
+//   justify-content: space-evenly;
+//   width: 15em;
 // }
 
-// .credentials li {
-//   list-style: none;
-// }
-
-// .credentials a {
+// .navLink {
+//   display: flex;
+//   align-items: flex-end;
+//   margin-top: 50px;
+//   justify-content: center;
 //   color: white;
 //   text-decoration: none;
-//   letter-spacing: 2px;;
-//   font-weight: 400;
-//   font-size: 16pt;
-//   padding: 1em;
+//   width: -webkit-fill-available;
+//   background-size: 80px 20px;
 // }
-
-// .nav-links {
-//   display: flex;
-//   float: left;
-//   width: 60%;
-// }
-
-// .nav-links li {
-//   list-style: none;
-// }
-
-// .nav-links a {
+// .logo {
 //   color: white;
-//   text-decoration: none;
-//   letter-spacing: 2px;
-//   font-weight: 400;
-//   font-size: 16pt;
-//   padding: 1.5em;
+//   font-size: xxx-large;
 // }
+// .navLink:hover {
+//   background: teal;
+// }
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
 
-// .nav-links signup {
-//   float: right;
-// }
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 12vh;
+  background-color: #101010;
+  font-family: 'Poppins', sans-serif;
+}
 
-// .nav-links a:hover {
-//   background-color:rgb(153, 201, 202);
-//   padding-left: 1em;
-//   padding-right: 1em;
-//   padding-top: 2em;
-//   padding-bottom: 4em;
-// }
+.logo h1 {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 45px;
+  font-weight: 200;
+  letter-spacing: 1px;;
+}
 
-// .credentials a:hover {
-//   background-color:rgb(153, 201, 202);
-//   padding-left: 1em;
-//   padding-right: 1em;
-//   padding-top: 2em;
-//   padding-bottom: 4em;
-// }
+.logo h1 span {
+  font-weight: 800;
+}
 
-// .collapse {
-//   display: none;
-// }
+.credentials {
+  display: flex;
+  float: right;
+}
 
-// .collapse div {
-//   width: 25px;
-//   height: 3px;
-//   background-color: white;
-//   margin: 5px;
-// }
+.credentials li {
+  list-style: none;
+}
+
+.credentials a {
+  color: white;
+  text-decoration: none;
+  letter-spacing: 2px;;
+  font-weight: 400;
+  font-size: 16pt;
+  padding: 1em;
+}
+
+.nav-links {
+  display: flex;
+  float: left;
+  width: 60%;
+}
+
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: 400;
+  font-size: 16pt;
+  padding: 1.5em;
+}
+
+.nav-links signup {
+  float: right;
+}
+
+.nav-links a:hover {
+  background-color:rgb(153, 201, 202);
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 2em;
+  padding-bottom: 4em;
+}
+
+.credentials a:hover {
+  background-color:rgb(153, 201, 202);
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 2em;
+  padding-bottom: 4em;
+}
+
+.collapse {
+  display: none;
+}
+
+.collapse div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px;
+}
