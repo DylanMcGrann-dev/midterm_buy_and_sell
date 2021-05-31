@@ -54,9 +54,18 @@ app.get("/", (req, res) => {
 
 //will move later to own file but for now this is the products route
 app.get("/products", (req, res) => {
-  const params = req.query;
 
-  res.render("products");
+  res.render("products",{ filter: "all"});
+});
+
+app.get("/products/womens", (req, res) => {
+
+  res.render("products",{filter: 'womens'},);
+});
+
+app.get("/products/mens", (req, res) => {
+
+  res.render("products", {filter: "mens"});
 });
 
 //display offer cart page

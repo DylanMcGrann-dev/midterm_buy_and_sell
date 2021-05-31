@@ -22,65 +22,36 @@
   </head>
 
   <body>
-    <!-- Top nav bar (fixed) -->
+
     <%- include("partials/_header") %>
+
     <header>
       <div class="shopnow">
-      <table>
-      <tr>
-        <th><img src="\images\mens.jpeg"></th>
-        <th><img src="\images\womens.jpeg"></th>
-        <th><img src="\images\unisex.jpeg"></th>
-      </tr>
+        <table>
+          <tr>
+            <th><img src="\images\mens.jpeg"></th>
+            <th><img src="\images\womens.jpeg"></th>
+            <th><img src="\images\unisex.jpeg"></th>
+          </tr>
 
-      <tr>
-        <td>SHOP MENS</td>
-        <td>SHOP WOMENS</td>
-        <td>SHOP ALL</td>
-      </tr>
-    </table>
+          <tr>
+            <td>SHOP MENS</td>
+            <td>SHOP WOMENS</td>
+            <td>SHOP ALL</td>
+          </tr>
+        </table>
 
-    <marquee behaviour = "scroll" direction = "left">
-      <img src="\images\male.png">
-      <img src="\images\female.png">
-      <img src="\images\malefemale.png">
-      <img src="\images\male.png">
-      <img src="\images\female.png">
-    </marquee>
-  </div>
+        <marquee behaviour = "scroll" direction = "left">
+          <img src="\images\male.png">
+          <img src="\images\female.png">
+          <img src="\images\malefemale.png">
+          <img src="\images\male.png">
+          <img src="\images\female.png">
+        </marquee>
+      </div>
     </header>
 
-    <footer>
-      <div class="footer">
-        <div class="inner_footer">
-          <div class="footer_fourth">
-            <h1>Need Help</h1>
-            <a href="#">Terms &amp; Conditions</a>
-            <a href="#">Privacy Policy</a>
-          </div>
+    <%- include("partials/_footer") %>
 
-          <div class="footer_fourth">
-            <h1>FAQs</h1>
-            <a href="#">Common questions</a>
-            <a href="#">Something</a>
-          </div>
-
-          <div class="footer_fourth">
-            <h1>SHIPPING & DELIVERY</h1>
-            <a href="#">Shipping</a>
-            <a href="#">Delivery Times</a>
-            <a href="#">Returns</a>
-          </div>
-
-          <div class="footer_fourth">
-            <h1>CONTACT US</h1>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-          </div>
-        </div>
-      </div>
-    </footer>
   </body>
 </html>
