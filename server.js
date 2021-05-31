@@ -52,6 +52,11 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+//will move later to own file but for now this is the products route
+app.get("/products", (req, res) => {
+  res.render("products");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

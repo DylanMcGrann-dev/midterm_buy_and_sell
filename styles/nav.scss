@@ -1,39 +1,37 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+
+nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 5px;
+  justify-content: space-between;
 }
 
-li {
-  float: left;
+.spanLeft {
+  width: 600px;
+  display: flex;
+  justify-content: space-around;
+}
+.spanRight {
+  display: flex;
+  justify-content: space-evenly;
+  width: 15em;
 }
 
-li a {
-  display: inline-block;
+.navLink {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 50px;
+  justify-content: center;
   color: white;
-  text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
-  vertical-align: middle;
-  padding-top: 50px;
-
+  width: -webkit-fill-available;
+  background-size: 80px 20px;
 }
-
-li label {
-  display: block;
+.logo {
   color: white;
-  text-align: center;
-  text-decoration: none;
-
-  width: 90px;
-  height: 82px;
-  font-size: 60pt;
-
-  padding-right: 1.5em;
+  font-size: xxx-large;
 }
-
-/* Change the link color on hover */
-li a:hover {
-  background-color: rgb(153, 201, 202)
+.navLink:hover {
+  background: teal;
 }
