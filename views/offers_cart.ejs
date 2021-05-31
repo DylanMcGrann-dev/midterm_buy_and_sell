@@ -56,16 +56,9 @@
               <div class="description">
                 <td><%= offer.description %></td>
               </div>
-              <div class="status">
-                <% if (offer.current_status === 'pending') { %>
-                  <span class="badge badge-light">Approved</span> <span class="badge badge-warning">Pending</span> <span class="badge badge-light">Decliend</span>
-                <% }%>
-                <% if (offer.current_status === 'approved') { %>
-                  <span class="badge badge-success">Approved</span> <span class="badge badge-light">Pending</span> <span class="badge badge-light">Decliend</span>
-                <% }%>
-                <% if (offer.current_status === 'decliend') { %>
-                  <span class="badge badge-light">Approved</span> <span class="badge badge-light">Pending</span> <span class="badge badge-danger">Decliend</span>
-                <% }%>
+              <div class="checkout">
+                <span id="price"><b>Price: <%= offer.total_cost %></b></span>
+                <button type="button" class="btn btn-success">Checkout</button>
               </div>
             </div>
           </div>
