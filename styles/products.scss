@@ -1,0 +1,58 @@
+main {
+  display: flex;
+  flex-direction: column;
+}
+.filterSpan {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 45px;
+  height: 180px;
+  margin-bottom: 15px;
+}
+.filterItems {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
+  height: 400px;
+  margin-bottom: 15px;
+}
+.filterStyle {
+  border-style: solid;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filterStyle:hover {
+  border-color: rgb(153, 201, 202);
+}
+.itemStyle {
+  display: flex;
+  flex-direction: column;
+}
+.userSpanStyle {
+  background-color: lightgrey;
+  padding-left: 4px;
+  padding-top: 4px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.description {
+  height: 120px;
+    background-color: lightgrey;
+    display: flex;
+    justify-content: space-evenly;
+    width: 236px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.buyNow {
+  background-color: teal;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px
+}
+.buyNow:hover {
+  background-color: rgb(153, 201, 202);
+}

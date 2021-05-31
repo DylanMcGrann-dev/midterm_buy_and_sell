@@ -22,45 +22,9 @@
   </head>
 
   <body>
-
-    <!-- Top nav bar (fixed) -->
-    <nav>
-      <div class="logo">
-        <h1>BUY<span>SELL</span></h1>
-      </div>
-      <ul class="nav-links">
-        <li><a href="/main">HOME</a></li>
-        <li><a href="/shop">MENS</a></li>
-        <li><a href="/shop">WOMENS</a></li>
-        <li><a href="/shop">ALL</a></li>
-      </ul>
-
-      <ul class="credentials">
-        <li><a href="/login">LOGIN</a></li>
-        <li><a href="/signup">SIGNUP</a></li>
-    </ul>
-
-      <div class="collapse">
-        <div class ="line1"></div>
-        <div class ="line2"></div>
-        <div class ="line3"></div>
-      </div>
-    </nav>
-<header>
-  <div class="sellers">
-  <table class="filter">
-    <tr>
-      <th><a href="#"><i class="fa fa-plus-circle"></i></a>
-      <th><a href="#"><i class="fa fa-search-plus"></i></a>
-      <th><a href="#"><i class="fa fa-search-plus"></i></a>
-    </tr>
-    <tr>
-      <td>LIST A NEW ITEM</td>
-      <td>VIEW ACTIVE LISTINGS</td>
-      <td>VIEW ALL LISTINGS</td>
-    </tr>
-    </table>
-    <table
+    <%- include("partials/_header") %>
+  <table class="table">
+    <thead>
       <tr>
         <th scope="col">IMAGE</th>
         <th scope="col">GENDER</th>
