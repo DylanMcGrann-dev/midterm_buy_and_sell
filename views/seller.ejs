@@ -3,6 +3,7 @@
   <head>
     <title>Sellers Profile</title>
 
+    <!-- FONTS & STYLING -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/seller.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -22,57 +24,65 @@
   </head>
 
   <body>
-    <%- include("partials/_header") %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">IMAGE</th>
-        <th scope="col">GENDER</th>
-        <th scope="col">SIZE</th>
-        <th scope="col">CATEGORY</th>
-        <th scope="col">DESCRIPTION</th>
-        <th scope="col">PRICE</th>
-      </tr>
-  </table>
-</div>
-</header>
 
-  <footer>
-    <div class="footer">
-      <div class="inner_footer">
-        <div class="footer_fourth">
-          <h1>Need Help</h1>
-          <a href="#">Terms &amp; Conditions</a>
-          <a href="#">Privacy Policy</a>
-        </div>
+  <%- include("partials/_header") %>
 
-        <div class="footer_fourth">
-          <h1>FAQs</h1>
-          <a href="#">Common questions</a>
-          <a href="#">Something</a>
-        </div>
+  <header>
+  <div class="tabs">
+    <ul>
+      <li>ACTIVE LISTINGS</li>
+      <li>CREATE NEW LISTING</li>
+      <li>ALL LISTING</li>
+    </ul>
+  </div>
 
-        <div class="footer_fourth">
-          <h1>SHIPPING & DELIVERY</h1>
-          <a href="#">Shipping</a>
-          <a href="#">Delivery Times</a>
-          <a href="#">Returns</a>
-        </div>
+  <div class="filter-content">
+    <div id="active_listing">
+      <table class="table_active">
+        <tr>
+          <th scope="col">IMAGE</th>
+          <th scope="col">GENDER</th>
+          <th scope="col">SIZE</th>
+          <th scope="col">CATEGORY</th>
+          <th scope="col">DESCRIPTION</th>
+          <th scope="col">PRICE</th>
+        </tr>
+      </table>
 
-        <div class="footer_fourth">
-          <h1>CONTACT US</h1>
-          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+      <div id="new_listing">
+        <table class="table_new">
+          <tr>
+            <th scope="col">IMAGE</th>
+            <th scope="col">GENDER</th>
+            <th scope="col">SIZE</th>
+            <th scope="col">CATEGORY</th>
+            <th scope="col">DESCRIPTION</th>
+            <th scope="col">PRICE</th>
+          </tr>
+        </table>
+
+        <div id="all_listing">
+          <table class="table_all">
+            <tr>
+              <th scope="col">IMAGE</th>
+              <th scope="col">GENDER</th>
+              <th scope="col">SIZE</th>
+              <th scope="col">CATEGORY</th>
+              <th scope="col">DESCRIPTION</th>
+              <th scope="col">PRICE</th>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
-  </footer>
+  </header>
+
+  <%- include("partials/_footer") %>
 
   <!-- Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </body>
 </html>
