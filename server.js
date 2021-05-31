@@ -79,7 +79,19 @@ app.get("/offers_cart", (req, res) => {
   res.render("offers_cart", templetbar);
 });
 
-
+app.get("/seller", (req, res) => {
+  const template = {
+    offers: [
+      {
+        photo_url: 'https://cdn.shopify.com/s/files/1/0932/1356/products/Mar25-2021-Ecomm-Monica-24_800x.jpg?v=1619108093',
+        user_id: 'asdf1111',
+        description: 'Terry Cropped Hoodie in Moss',
+        current_status: 'pending'
+      },
+    ]
+  }
+  res.render("seller", template);
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

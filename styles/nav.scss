@@ -1,39 +1,94 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-li {
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 12vh;
+  background-color: #101010;
+  font-family: 'Poppins', sans-serif;
+}
+
+.logo h1 {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 45px;
+  font-weight: 200;
+  letter-spacing: 1px;;
+}
+
+.logo h1 span {
+  font-weight: 800;
+}
+
+.credentials {
+  display: flex;
+  float: right;
+}
+
+.credentials li {
+  list-style: none;
+}
+
+.credentials a {
+  color: white;
+  text-decoration: none;
+  letter-spacing: 2px;;
+  font-weight: 400;
+  font-size: 16pt;
+  padding: 1em;
+}
+
+.nav-links {
+  display: flex;
   float: left;
+  width: 60%;
 }
 
-li a {
-  display: inline-block;
+.nav-links li {
+  list-style: none;
+}
+
+.nav-links a {
   color: white;
-  text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
-  vertical-align: middle;
-  padding-top: 50px;
-
+  letter-spacing: 2px;
+  font-weight: 400;
+  font-size: 16pt;
+  padding: 1.5em;
 }
 
-li label {
-  display: block;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-
-  width: 90px;
-  height: 82px;
-  font-size: 60pt;
-
-  padding-right: 1.5em;
+.nav-links signup {
+  float: right;
 }
 
-/* Change the link color on hover */
-li a:hover {
-  background-color: rgb(153, 201, 202)
+.nav-links a:hover {
+  background-color:rgb(153, 201, 202);
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 2em;
+  padding-bottom: 4em;
+}
+
+.credentials a:hover {
+  background-color:rgb(153, 201, 202);
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 2em;
+  padding-bottom: 4em;
+}
+
+.collapse {
+  display: none;
+}
+
+.collapse div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px;
 }
