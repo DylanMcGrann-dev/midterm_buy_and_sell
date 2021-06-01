@@ -5,7 +5,7 @@ main {
 .filterSpan {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 165px;
+  margin-top: 45px;
   height: 180px;
   margin-bottom: 15px;
 }
@@ -18,25 +18,27 @@ main {
 }
 .filterStyle {
   border-style: solid;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-width: thick;
 }
 .filterStyle:hover {
   border-color: rgb(153, 201, 202);
 }
 .itemStyle {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 .userSpanStyle {
   padding-left: 4px;
   padding-top: 4px;
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
+  font-family: 'Poppins', sans-serif;
 }
 .description {
   height: 120px;
@@ -46,10 +48,13 @@ main {
   padding-top: 8px;
   padding-bottom: 8px;
   padding: 8px;
+  font-family: 'Poppins', sans-serif;
 }
 .buyNow {
   background-color: teal;
   border-radius: 8px;
+  width: 120px;
+  margin-left: 280px;
 }
 .buyNow:hover {
   background-color: rgb(153, 201, 202);
@@ -64,4 +69,15 @@ main {
   display: flex;
   justify-content: center;
   padding: 5px;
+}
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  justify-content: space-around;
+}
+.imgFix {
+  margin-right: 40px;
+  width: 300px;
+  height: 400px;
 }
