@@ -20,24 +20,24 @@ As a buyer, I want to have the ability to add items to my cart
   * product_price
  
 - USERS_TABLE
-* PK - user_id
-* user_name
-* user_email
+  * PK - user_id
+  * user_name
+  * user_email
 
 - REVIEWS_TABLE
-* PK - review_id
-* FK - for_user_id
-* FK - from_user_id
-* FK - product_id
-* review_rating
-* review_comments
+  * PK - review_id
+  * FK - for_user_id
+  * FK - from_user_id
+  * FK - product_id
+  * review_rating
+  * review_comments
 
 - OFFERS_TABLE
-* PK - Offer_id
-* FK - buyer_id
-* FK - product_id
-* offer_price
-* offer_status
+  * PK - Offer_id
+  * FK - buyer_id
+  * FK - product_id
+  * offer_price
+  * offer_status
 
 ## PAGES
 - Main Page 
