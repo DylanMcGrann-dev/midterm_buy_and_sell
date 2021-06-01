@@ -34,130 +34,138 @@ app.use(
 );
 app.use(express.static("public"));
 
-// Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/browser");
-const widgetsRoutes = require("./routes/offer_cart");
-const productsRoutes = require("./routes/products");
+// all routes specified and brought in here
+const productsRoute = require("./routes/products");
+app.use(productsRoute(db));
+const productsWomens = require("./routes/products_womens");
+app.use(productsWomens(db));
+const productsMens = require("./routes/products_mens");
+app.use(productsMens(db));
+const cart = require("./routes/cart");
+app.use(cart(db));
+const index = require("./routes/index");
+app.use(index(db));
+const seller = require("./routes/seller");
+app.use(seller(db));
 
-// Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
-app.use("/api/browser", usersRoutes(db));
-app.use("/api/offer_cart", widgetsRoutes(db));
-app.use("/api/products", productsRoutes(db, 3));
-// Note: mount other resources here, using the same pattern above
+// // Mount all resource routes
+// // Note: Feel free to replace the example routes below with your own
+// app.use("/api/browser", usersRoutes(db));
+// app.use("/api/offer_cart", widgetsRoutes(db));
+// app.use("/api/products", productsRoutes(db, 3));
+// // Note: mount other resources here, using the same pattern above
 
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-app.get("/", (req, res) => {
-  res.render("index");
-});
+// // Home page
+// // Warning: avoid creating more routes in this file!
+// // Separate them into separate routes files (see above).
+// app.get("/", (req, res) => {
+//   res.render("index");
+// });
 
-//will move later to own file but for now this is the products route
-app.get("/products", (req, res) => {
-  const queryParams = [];
+// //will move later to own file but for now this is the products route
+// app.get("/products", (req, res) => {
+//   const queryParams = [];
 
-  let queryString = `
-    SELECT *, users.name as userName
-    FROM products
-    JOIN users ON users.id = user_id
-    LIMIT 3`;
+//   let queryString = `
+//     SELECT *, users.name as userName
+//     FROM products
+//     JOIN users ON users.id = user_id
+//     LIMIT 3`;
 
-  return db
-    .query(queryString, queryParams)
-    .then((data) => {
-      const products = data.rows;
-      const templetvar = {
-        filter: "all",
-        items: products,
-      };
-      res.render("products", templetvar);
-    })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
-    });
-});
+//   return db
+//     .query(queryString, queryParams)
+//     .then((data) => {
+//       const products = data.rows;
+//       const templetvar = {
+//         filter: "all",
+//         items: products,
+//       };
+//       res.render("products", templetvar);
+//     })
+//     .catch((err) => {
+//       res.status(500).json({ error: err.message });
+//     });
+// });
 
-app.get("/products/womens", (req, res) => {
-  const queryParams = [];
+// app.get("/products/womens", (req, res) => {
+//   const queryParams = [];
 
-  let queryString = `
-    SELECT *, users.name as userName
-    FROM products
-    JOIN users ON users.id = user_id
-    WHERE gender = 'women'
-    LIMIT 3`;
+//   let queryString = `
+//     SELECT *, users.name as userName
+//     FROM products
+//     JOIN users ON users.id = user_id
+//     WHERE gender = 'women'
+//     LIMIT 3`;
 
-  return db
-    .query(queryString, queryParams)
-    .then((data) => {
-      const products = data.rows;
-      const templetvar = {
-        filter: "womens",
-        items: products,
-      };
-      res.render("products", templetvar);
-    })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
-    });
-});
+//   return db
+//     .query(queryString, queryParams)
+//     .then((data) => {
+//       const products = data.rows;
+//       const templetvar = {
+//         filter: "womens",
+//         items: products,
+//       };
+//       res.render("products", templetvar);
+//     })
+//     .catch((err) => {
+//       res.status(500).json({ error: err.message });
+//     });
+// });
 
-app.get("/products/mens", (req, res) => {
-  const queryParams = [];
+// app.get("/products/mens", (req, res) => {
+//   const queryParams = [];
 
-  let queryString = `
-    SELECT *, users.name as userName
-    FROM products
-    JOIN users ON users.id = user_id
-    WHERE gender = 'men'
-    LIMIT 3`;
+//   let queryString = `
+//     SELECT *, users.name as userName
+//     FROM products
+//     JOIN users ON users.id = user_id
+//     WHERE gender = 'men'
+//     LIMIT 3`;
 
-  return db
-    .query(queryString, queryParams)
-    .then((data) => {
-      const products = data.rows;
-      const templetvar = {
-        filter: "mens",
-        items: products,
-      };
-      res.render("products", templetvar);
-    })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
-    });
-});
+//   return db
+//     .query(queryString, queryParams)
+//     .then((data) => {
+//       const products = data.rows;
+//       const templetvar = {
+//         filter: "mens",
+//         items: products,
+//       };
+//       res.render("products", templetvar);
+//     })
+//     .catch((err) => {
+//       res.status(500).json({ error: err.message });
+//     });
+// });
 
-//display offer cart page
-app.get("/cart", (req, res) => {
-  const queryParams = [];
+// //display offer cart page
+// app.get("/cart", (req, res) => {
+//   const queryParams = [];
 
-  let queryString = `
-    SELECT offers.id, product_id, products.photo_url, products.description, products.price_of_product, users.name FROM offers
-    JOIN products on product_id = products.id
-    JOIN users ON user_id = users.id
-    WHERE buyer_id = 2`;
-  return db
-    .query(queryString, queryParams)
-    .then((data) => {
-      const products = data.rows;
-      let totalPrice = data.rows.reduce(
-        (total, product) => (total += product.price_of_product),
-        0
-      );
-      const templateVar = {
-        offers: products,
-        totalPrice,
-        buyerId: 2,
-      };
+//   let queryString = `
+//     SELECT offers.id, product_id, products.photo_url, products.description, products.price_of_product, users.name FROM offers
+//     JOIN products on product_id = products.id
+//     JOIN users ON user_id = users.id
+//     WHERE buyer_id = 2`;
+//   return db
+//     .query(queryString, queryParams)
+//     .then((data) => {
+//       const products = data.rows;
+//       let totalPrice = data.rows.reduce(
+//         (total, product) => (total += product.price_of_product),
+//         0
+//       );
+//       const templateVar = {
+//         offers: products,
+//         totalPrice,
+//         buyerId: 2,
+//       };
 
-      res.render("offers_cart", templateVar);
-    })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
-    });
-});
+//       res.render("offers_cart", templateVar);
+//     })
+//     .catch((err) => {
+//       res.status(500).json({ error: err.message });
+//     });
+// });
 
 //deleting cart items
 app.post("/cart/:offerId/delete", (req, res) => {

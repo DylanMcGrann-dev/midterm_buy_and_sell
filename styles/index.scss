@@ -11,11 +11,10 @@ header table {
 }
 
 tr img{
-  margin-top: 10em;
   padding: 1em;
   object-fit: cover;
   width: 100%;
-  max-height: 1000px;
+  max-height: auto;
 
   vertical-align: top;
 

@@ -32,43 +32,44 @@
       <input type="radio" id="tabactive" name="mytabs" checked="checked">
       <label for="tabactive">ACTIVE LISTINGS</label>
         <div class="tab">
+          <% if (filter === "seller") { %>
           <h2>ACTIVE LISTINGS</h2>
-          <thead class="act">
           <table class="table_active">
-            <tr>
-              <th scope="col">IMAGE</th>
-              <th scope="col">GENDER</th>
-              <th scope="col">SIZE</th>
-              <th scope="col">CATEGORY</th>
-              <th scope="col">DESCRIPTION</th>
-              <th scope="col">PRICE</th>
-            </tr>
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">IMAGE</th>
+                <th scope="col">GENDER</th>
+                <th scope="col">SIZE</th>
+                <th scope="col">CATEGORY</th>
+                <th scope="col">DESCRIPTION</th>
+                <th scope="col">PRICE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(let item of items) { %>
+                <tr>
+                  <td><%= item.id %></td>
+                  <td><%= item.photo_url %></td>
+                  <td><%= item.gender %></td>
+                  <td><%= item.size %></td>
+                  <td><%= item.category %></td>
+                  <td><%= item.description %></td>
+                  <td><%= item.price_of_product %></td>
+                </tr>
+              <% } %>
+            </tbody>
           </table>
-        </thead>
+          <% } %>
         </div>
 
         <input type="radio" id="taball" name="mytabs">
         <label for="taball">ALL LISTINGS</label>
-        <div class="tab">
-          <h2>ALL LISTINGS</h2>
-          <table class="table_all">
-            <tr>
-              <th scope="col">IMAGE</th>
-              <th scope="col">GENDER</th>
-              <th scope="col">SIZE</th>
-              <th scope="col">CATEGORY</th>
-              <th scope="col">DESCRIPTION</th>
-              <th scope="col">PRICE</th>
-            </tr>
-          </table>
-        </div>
-
-        <input type="radio" id="tabnew" name="mytabs">
-        <label for="tabnew">CREATE NEW LISTING</label>
           <div class="tab">
-            <h2>CREATE A NEW LISTING</h2>
-            <table class="table_new">
+            <h2>ALL LISTINGS</h2>
+            <table class="table_all">
               <tr>
+                <th scope="col">ID</th>
                 <th scope="col">IMAGE</th>
                 <th scope="col">GENDER</th>
                 <th scope="col">SIZE</th>
@@ -79,8 +80,23 @@
             </table>
           </div>
 
-    </header>
-      </div>
+          <input type="radio" id="tabnew" name="mytabs">
+          <label for="tabnew">CREATE NEW LISTING</label>
+            <div class="tab">
+              <h2>CREATE A NEW LISTING</h2>
+              <table class="table_new">
+                <tr>
+                  <th scope="col">IMAGE</th>
+                  <th scope="col">GENDER</th>
+                  <th scope="col">SIZE</th>
+                  <th scope="col">CATEGORY</th>
+                  <th scope="col">DESCRIPTION</th>
+                  <th scope="col">PRICE</th>
+                </tr>
+              </table>
+            </div>
+    </div>
+  </header>
 
   <%- include("partials/_footer") %>
 

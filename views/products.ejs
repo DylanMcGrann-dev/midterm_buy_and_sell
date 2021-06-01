@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- external links -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <!-- style sheets -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -47,12 +49,12 @@
     <div class="products-wrapper"><% for (let item of items) { %>
     <span class="filterItems">
       <div class="itemStyle">
-        <img src="\images\shirt.jpeg">
-        <span class="userSpanStyle"><%= item.username %></span>
-        <span class="description"><%= item.description %></span>
-        <!-- <form method="POST" action="/products/<%= item.id %>/2">
-        </form> -->
-        <button class="buyNow">buy now</button>
+        <img  class="imgFix" src="<%= item.photo_url %>">
+          <div class="productInfo">
+            <span class="userSpanStyle"><%= item.username %></span>
+            <span class="description"><%= item.description %></span>
+            <button class="buyNow">$<%= item.price_of_product %></button>
+          </div>
       </div>
     </span>
     <% } %>
