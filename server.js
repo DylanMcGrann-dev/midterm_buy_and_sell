@@ -70,29 +70,31 @@ app.get("/products/mens", (req, res) => {
 
 //display offer cart page
 app.get("/offers_cart", (req, res) => {
-  const templetbar = {
+  // db.query()
+  const templetvar = {
     offers: [
       {
         photo_url: 'https://cdn.shopify.com/s/files/1/0932/1356/products/Mar25-2021-Ecomm-Monica-24_800x.jpg?v=1619108093',
         user_id: 'asdf1111',
         description: 'Terry Cropped Hoodie in Moss',
-        current_status: 'pending'
+        total_cost: 7500
       },
       {
         photo_url: 'https://cdn.shopify.com/s/files/1/0932/1356/products/Mar25-2021-Ecomm-Monica-11_800x.jpg?v=1619107106',
         user_id: 'uuuu9999',
         description: 'Terry Hoodie in Taupe',
-        current_status: 'approved'
+        total_cost: 2500
       },
       {
         photo_url: 'https://i0.codibook.net/files/1978110564211/65007ca57157126b/2095991763.jpg',
         user_id: 'oioi333',
         description: 'Someday Part 9 Cotton Pants',
-        current_status: 'decliend'
+        total_cost: 3000
       }
-    ]
+    ],
+    totalPrice: 950
   };
-  res.render("offers_cart", templetbar);
+  res.render("offers_cart", templetvar);
 });
 
 app.get("/seller", (req, res) => {

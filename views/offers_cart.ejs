@@ -3,11 +3,15 @@
   <head>
     <title>Home Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
     <link rel="stylesheet" href="/styles/offers_cart.css" type="text/css" />
 
 
@@ -16,33 +20,9 @@
   </head>
 
   <body>
-    <!-- Top nav bar (fixed) -->
-    <nav>
-      <ul>
-        <!-- <li><img src="\images\logo.png"></li> -->
-        <li><label for="logo">BS</label></li>
-        <li><a href="/main">HOME</a></li>
-        <li><a href="/shop">SHOP MENS</a></li>
-        <li><a href="/shop">SHOP WOMENS</a></li>
-        <li><a href="/shop">SHOP ALL</a></li>
-        <li style="float:right"><a href="/signup">SIGNUP</a></li>
-        <li style="float:right"><a href="/login">LOGIN</a></li>
-    </ul>
-    </nav>
-
-    <header>
-      <div class="shopnow">
-        <table>
-          <tr>
-            <td>SHOP MENS</td>
-            <td>SHOP WOMENS</td>
-            <td>SHOP ALL</td>
-          </tr>
-        </table>
-      </div>
-    </header>
+    <%- include("partials/_header") %>
     <main>
-      <div><% for(let offer of offers) { %></div>
+      <div><% for (let offer of offers) { %></div>
         <div class="whole_container">
           <img class="offer_picture" src='<%= offer.photo_url %>'/>
           <div class="detail_container" >
@@ -56,36 +36,18 @@
               <div class="description">
                 <td><%= offer.description %></td>
               </div>
-              <div class="status">
-                <% if (offer.current_status === 'pending') { %>
-                  <span class="badge badge-light">Approved</span> <span class="badge badge-warning">Pending</span> <span class="badge badge-light">Decliend</span>
-                <% }%>
-                <% if (offer.current_status === 'approved') { %>
-                  <span class="badge badge-success">Approved</span> <span class="badge badge-light">Pending</span> <span class="badge badge-light">Decliend</span>
-                <% }%>
-                <% if (offer.current_status === 'decliend') { %>
-                  <span class="badge badge-light">Approved</span> <span class="badge badge-light">Pending</span> <span class="badge badge-danger">Decliend</span>
-                <% }%>
+              <div>
+                <span id="price"><b>Price : $ <%= offer.total_cost/100 %></b></span>
               </div>
             </div>
           </div>
         </div>
-      <% } %>
+        <% } %>
+        <div class="checkout">
+          <p>Total Price : $ <%= totalPrice/100 %></p>
+          <button type="button" class="btn btn-success">Checkout</button>
+        </div>
     </main>
-    <footer>
-      <table>
-      <tr>
-        <th> SUPPORT</th>
-        <th>CUSTOMER SERVICE</th>
-      </tr>
-      <tr>
-        <td>Shipping & Delivery</td>
-        <td>EMAIL: help@BS.ca</td>
-      </tr>
-      <tr></tr>
-        <td>Return Policy</td>
-        <td>1-800-000-HELP</td>
-      </tr>
-    </footer>
+    <%- include("partials/_footer") %>
   </body>
 </html>

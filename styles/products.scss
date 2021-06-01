@@ -33,7 +33,6 @@ main {
   flex-direction: column;
 }
 .userSpanStyle {
-  background-color: lightgrey;
   padding-left: 4px;
   padding-top: 4px;
   border-top-right-radius: 8px;
@@ -41,18 +40,28 @@ main {
 }
 .description {
   height: 120px;
-    background-color: lightgrey;
-    display: flex;
-    justify-content: space-evenly;
-    width: 236px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 236px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding: 8px;
 }
 .buyNow {
   background-color: teal;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px
+  border-radius: 8px;
 }
 .buyNow:hover {
   background-color: rgb(153, 201, 202);
+}
+.itemContent {
+  border-style: solid;
+  border-width: 2px;
+  display: flex;
+  flex-direction: column;
+}
+.price {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
 }
