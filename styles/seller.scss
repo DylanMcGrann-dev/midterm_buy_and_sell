@@ -1,50 +1,56 @@
-.tabs {
-  padding-top: 14em;
+.mytabs {
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
+.mytabs input[type="radio"] {
+  display: none;
+}
 
-// .seller {
-//   padding: 1em;
-//   width: 100vw;
-//   height: 75%;
+.mytabs label {
+  padding: 25px;
+  background: #101010;
+  color: white;
+  font-weight: 400;
+  font-size: 14pt;
+  border-left: white;
+  border-style: solid;
+  border-radius: 40px 40px 10px 10px;
+}
 
-//   vertical-align: top;
-//   text-align: center;
-//   vertical-align: middle;
+.mytabs .tab {
+  width: 100%;
+  padding: 20px;
+  background: white;
+  margin-top: 1em;
+  order: 1;
+  display: none;
+}
 
-//   background-color: white;
-//   color: #101010;
-//   font-family: 'Poppins', sans-serif;
-//   font-size: 16pt;
-//   font-weight: 400;
-//  }
+.mytabs .tab h2 {
+  font-size: 20pt;
+}
 
+.mytabs input[type='radio']:checked + label + .tab {
+  display: block;
+}
 
-//  .filter {
-//   margin-top: 10em;
-//   padding: 1em;
-//   object-fit: cover;
-//   width: 100VW;
-//   max-height: 1000px;
+.mytabs input[type='radio']:checked + label {
+  background: rgb(153, 201, 202);;
+}
 
-//   vertical-align: top;
-// font-size: 16pt;
-// //  border: solid;
-// //  border-width: 0.5em;
-// //  border-spacing: 5em;
-// //  color: #18181a;
-//  }
+.act {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
 
-// .filter {
-//   width: 100%;
-//   height: 100%;
-
-//   padding-right: 10%;
-//   padding-left: 10%;
-//   margin-top: 0em;
-
-//   display: table;
-//   table-layout: fixed;
-//   border-collapse: separate;
-//   border-spacing: 3em;
-// }
+.table_active th{
+  font-size: 16pt;
+  font-weight: 600;
+}
