@@ -11,7 +11,7 @@ module.exports = (db) => {
       FROM products
       JOIN users ON users.id = user_id
       WHERE gender = 'women'
-      LIMIT 3`;
+      ;`;
 
     return db
 

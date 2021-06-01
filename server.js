@@ -43,16 +43,11 @@ const productsMens = require("./routes/products_mens");
 app.use(productsMens(db));
 const cart = require("./routes/cart");
 app.use(cart(db));
+const index = require("./routes/index");
+app.use(index(db));
+const seller = require("./routes/seller");
+app.use(seller(db));
 
-
-app.get("/", (req, res) => {
-  res.render("index");
-});
-
-
-app.get("/seller", (req, res) => {
-  res.render("seller");
-});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

@@ -11,7 +11,7 @@ module.exports = (db) => {
     SELECT *, users.name as userName
     FROM products
     JOIN users ON users.id = user_id
-    LIMIT 3`;
+    ;`;
 
     return db
 

@@ -2,30 +2,27 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (db) => {
-
-  router.get("/products/mens", (req, res) => {
+  router.get("/", (req, res) => {
     const queryParams = [];
 
     let queryString = `
-      SELECT *, users.name as userName
+      SELECT *, photo_url as photo
       FROM products
-      JOIN users ON users.id = user_id
-      WHERE gender = 'men'
-      ;`;
-
+      LIMIT 5;
+      `;
     return db
       .query(queryString, queryParams)
       .then((data) => {
         const products = data.rows;
-        const templetvar = {
-          filter: 'mens',
+        const templetVar = {
           items: products
         };
-        res.render("products", templetvar);
+
+        res.render("index",templetVar);
       })
       .catch((err) => {
-        res.status(500).json({ error: err.message });
-      });
+        res.status(500).json({error: err.message});
+      })
   });
   return router;
 }

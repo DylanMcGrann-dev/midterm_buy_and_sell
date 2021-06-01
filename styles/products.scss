@@ -78,6 +78,6 @@ main {
 }
 .imgFix {
   margin-right: 40px;
-  width: 300px;
-  height: 400px;
+  max-width: 300px;
+  height: auto;
 }
