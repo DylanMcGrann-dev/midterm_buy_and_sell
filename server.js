@@ -158,7 +158,6 @@ app.get("/offers_cart", (req, res) => {
 });
 
 app.get("/seller", (req, res) => {
-
   res.render("seller");
 });
 
