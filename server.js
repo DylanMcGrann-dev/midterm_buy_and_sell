@@ -39,6 +39,8 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/browser");
 const widgetsRoutes = require("./routes/offer_cart");
 const productsRoutes = require("./routes/products");
+const sellerRoutes = require("./routes/seller");
+const seller = require("./routes/seller");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -158,7 +160,28 @@ app.get("/offers_cart", (req, res) => {
 });
 
 app.get("/seller", (req, res) => {
-  res.render("seller");
+  const queryParams = [];
+
+  let queryString = `
+    SELECT *
+    FROM products
+    JOIN users ON users.id = user_id
+    WHERE users.id = '1'
+    `;
+
+  return db
+    .query(queryString, queryParams)
+    .then((data) => {
+      const products = data.rows;
+      const templateVar = {
+        items: products,
+        filter: 'seller',
+      };
+      res.render("seller", templateVar);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
 });
 
 app.listen(PORT, () => {

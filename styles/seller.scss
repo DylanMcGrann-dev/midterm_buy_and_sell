@@ -2,7 +2,7 @@
   font-family: 'Poppins', sans-serif;
   width: 100%;
   height: 100%;
-  padding: 10%;
+  padding: 3%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -13,13 +13,14 @@
 }
 
 .mytabs label {
-  padding: 25px;
+  padding: 35px;
   background: #101010;
   color: white;
   font-weight: 400;
   font-size: 14pt;
   border-left: white;
   border-style: solid;
+  border-width: 4px;
   border-radius: 40px 40px 10px 10px;
 }
 
@@ -27,9 +28,9 @@
   width: 100%;
   padding: 20px;
   background: white;
-  margin-top: 1em;
   order: 1;
   display: none;
+  border-top: 5px solid;
 }
 
 .mytabs .tab h2 {
@@ -44,13 +45,41 @@
   background: rgb(153, 201, 202);;
 }
 
-.act {
-  width: 100vw;
-  display: flex;
-  justify-content: space-between;
-}
-
-.table_active th{
+.table_active  {
   font-size: 16pt;
   font-weight: 600;
+  padding: 0;
+  display: flex;
+  height: 5em;
+  width: 92vw;
+  background: rgb(235, 235, 235);
+  border-bottom: 1px solid;
 }
+
+.table_active th {
+  width: 90vw;
+  justify-content: space-between;
+  vertical-align: center;
+}
+
+.table_active tr {
+  width: 90vw;
+}
+
+.table_all  {
+  font-size: 16pt;
+  font-weight: 600;
+  padding: 0;
+  display: flex;
+  height: 5em;
+  width: 92vw;
+  background: rgb(235, 235, 235);
+  border-bottom: 1px solid;
+}
+
+.table_all th {
+  width: 90vw;
+  justify-content: space-between;
+  vertical-align: center;
+}
+
