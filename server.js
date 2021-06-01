@@ -2,13 +2,13 @@
 require('dotenv').config();
 
 // Web server config
-const PORT       = process.env.PORT || 8080;
-const ENV        = process.env.ENV || "development";
-const express    = require("express");
+const PORT = process.env.PORT || 8080;
+const ENV = process.env.ENV || "development";
+const express = require("express");
 const bodyParser = require("body-parser");
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
+const sass = require("node-sass-middleware");
+const app = express();
+const morgan = require('morgan');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -54,18 +54,33 @@ app.get("/", (req, res) => {
 
 //will move later to own file but for now this is the products route
 app.get("/products", (req, res) => {
+  let queryParams = [];
 
-  res.render("products",{ filter: "all"});
+  let queryString = `
+  SELECT *
+  FROM products
+  JOIN users ON users.id = user_id;
+  `;
+  return db
+    .query(queryString, queryParams)
+    .then((data) => {
+      const products = data.rows;
+      console.log(products)
+      res.render("products",{filter: "all"} );
+    })
+  .catch ((err) => {
+        res.status(500).json({ error: err.message });
+      })
 });
 
 app.get("/products/womens", (req, res) => {
 
-  res.render("products",{filter: 'womens'},);
+  res.render("products", { filter: 'womens' },);
 });
 
 app.get("/products/mens", (req, res) => {
 
-  res.render("products", {filter: "mens"});
+  res.render("products", { filter: "mens" });
 });
 
 //display offer cart page
