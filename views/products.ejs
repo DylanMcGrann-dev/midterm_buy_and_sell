@@ -40,27 +40,17 @@
       <img class="filterStyle" src="\images\mens_hoodie.jpeg">
     </span>
     <% } %>
+    <div class="products-wrapper"><% for (let item of items) { %>
     <span class="filterItems">
       <div class="itemStyle">
         <img src="\images\shirt.jpeg">
-        <span class="userSpanStyle">userName</span>
-        <span class="description">description need more words still more words</span>
-        <button class="buyNow">buy now</button>
-      </div>
-      <div class="itemStyle">
-        <img src="\images\shirt.jpeg">
-        <span class="userSpanStyle">userName</span>
-        <span class="description">description need more words still more words</span>
-        <button class="buyNow">buy now</button>
-      </div>
-      <div class="itemStyle">
-        <img src="\images\shirt.jpeg">
-        <span class="userSpanStyle">userName</span>
-        <span class="description">description need more words still more words</span>
+        <span class="userSpanStyle"><%= item.username %></span>
+        <span class="description"><%= item.description %></span>
         <button class="buyNow">buy now</button>
       </div>
     </span>
-
+    <% } %>
+  </div>
   </main>
   <%- include("partials/_footer") %>
 </body>

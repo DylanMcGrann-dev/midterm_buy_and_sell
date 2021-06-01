@@ -18,10 +18,10 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
-
   <body>
     <%- include("partials/_header") %>
     <main>
+      <h3 id="title"><b>SHOPPING CART</b></h3>
       <div><% for (let offer of offers) { %></div>
         <div class="whole_container">
           <img class="offer_picture" src='<%= offer.photo_url %>'/>
@@ -37,7 +37,7 @@
                 <td><%= offer.description %></td>
               </div>
               <div>
-                <span id="price"><b>Price : $ <%= offer.total_cost/100 %></b></span>
+                <span id="price"><b>Price : $ <%= offer.price_of_product/100 %></b></span>
               </div>
             </div>
           </div>
