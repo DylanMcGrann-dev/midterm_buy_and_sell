@@ -69,8 +69,8 @@ app.get("/products", (req, res) => {
     .then((data) => {
       const products = data.rows;
       const templetvar = {
-        filter: 'all',
-        items: products
+        filter: "all",
+        items: products,
       };
       res.render("products", templetvar);
     })
@@ -94,8 +94,8 @@ app.get("/products/womens", (req, res) => {
     .then((data) => {
       const products = data.rows;
       const templetvar = {
-        filter: 'womens',
-        items: products
+        filter: "womens",
+        items: products,
       };
       res.render("products", templetvar);
     })
@@ -119,8 +119,8 @@ app.get("/products/mens", (req, res) => {
     .then((data) => {
       const products = data.rows;
       const templetvar = {
-        filter: 'mens',
-        items: products
+        filter: "mens",
+        items: products,
       };
       res.render("products", templetvar);
     })
@@ -130,13 +130,14 @@ app.get("/products/mens", (req, res) => {
 });
 
 //display offer cart page
-app.get("/offers_cart", (req, res) => {
+app.get("/cart", (req, res) => {
   const queryParams = [];
 
   let queryString = `
-    SELECT product_id, products.photo_url, products.description, products.price_of_product, products.user_id FROM offers
+    SELECT offers.id, product_id, products.photo_url, products.description, products.price_of_product, users.name FROM offers
     JOIN products on product_id = products.id
-    WHERE buyer_id = 4`;
+    JOIN users ON user_id = users.id
+    WHERE buyer_id = 2`;
   return db
     .query(queryString, queryParams)
     .then((data) => {
@@ -148,6 +149,7 @@ app.get("/offers_cart", (req, res) => {
       const templateVar = {
         offers: products,
         totalPrice,
+        buyerId: 2,
       };
 
       res.render("offers_cart", templateVar);
@@ -157,10 +159,54 @@ app.get("/offers_cart", (req, res) => {
     });
 });
 
+//deleting cart items
+app.post("/cart/:offerId/delete", (req, res) => {
+  const offerId = req.params.offerId;
+  let queryString = `DELETE FROM offers WHERE id = $1`;
+  return db
+    .query(queryString, [offerId])
+    .then(() => {
+      res.redirect("/cart");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
+app.post("/checkout/:buyerId", (req, res) => {
+  const buyerId = req.params.buyerId;
+  let queryString = `DELETE FROM offers WHERE buyer_id = $1`;
+  return db
+    .query(queryString, [buyerId])
+    .then(() => {
+      let queryString2 = `SELECT GETDATE() WHERE id = 1`;
+      return db.query(queryString2).then(() => {
+        res.redirect("/");
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
+// app.post("/products/:productid/:buyerid", (req, res) => {
+//   const addingItems = req.params.offerId;
+//   let queryString = `INSERT INTO offers (product_id, buyer_id) VALUES $1, $2`;
+//   return db
+//     .query(queryString, [addingItems])
+//     .then(() => {
+//       res.redirect("/cart");
+//     })
+//     .catch((err) => {
+//       res.status(500).json({ error: err.message });
+//     });
+// });
+
 app.get("/seller", (req, res) => {
   res.render("seller");
 });
 
+//port page
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
