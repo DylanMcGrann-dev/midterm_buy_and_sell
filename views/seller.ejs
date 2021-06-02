@@ -60,7 +60,9 @@
                   <td><%= item.description %></td>
                   <td>$<%= item.price_of_product %></td>
                   <td>
-                    <button id ="btnsold" type="submit" class="btn btn-primary">SOLD</button>
+                    <form method="POST" type="submit">
+                      <button id ="btnsold"  class="btn btn-primary">SOLD</button>
+                    </form>
                   </td>
                   <td>
                     <form method="POST">
