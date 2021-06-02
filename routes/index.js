@@ -14,11 +14,10 @@ module.exports = (db) => {
       .query(queryString, queryParams)
       .then((data) => {
         const products = data.rows;
-        const templetVar = {
+        const templetvar = {
           items: products
         };
-
-        res.render("index",templetVar);
+        res.render("index",templetvar);
       })
       .catch((err) => {
         res.status(500).json({error: err.message});

@@ -35,22 +35,20 @@
           </tr>
 
           <tr>
-            <td>SHOP MENS</td>
-            <td>SHOP WOMENS</td>
-            <td>SHOP ALL</td>
+            <td><a class="anchorTag" href="/products/mens">SHOP MENS</a></td>
+            <td><a class="anchorTag" href="/products/womens"> WOMENS</a></td>
+            <td><a class="anchorTag" href="/products">SHOP ALL</a></td>
           </tr>
         </table>
-
-        <marquee behaviour = "scroll" direction = "left">
-          <img src="">
-          <img src="\images\female.png">
-          <img src="\images\malefemale.png">
-          <img src="\images\male.png">
-          <img src="\images\female.png">
-        </marquee>
+        <div class="marqueeContent">
+          <marquee behaviour = "scroll" direction = "left">
+            <% for (let item of items) { %>
+            <img src="<%= item.photo %>">
+            <% } %>
+          </marquee>
+        </div>
       </div>
     </header>
-
     <%- include("partials/_footer") %>
 
   </body>
