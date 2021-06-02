@@ -82,7 +82,17 @@ app.post("/products/:buyerid/:productid", (req, res) => {
 
 //send meesage to profile page
 app.post("/seller",(req,res) => {
-  
+  const message = req.params
+  console.log("message",message);
+  let queryString = `INSERT INTO message () VALUES ($1, $2, $3)`;
+  return db
+    .query(queryString, [])
+    .then(() => {
+      res.redirect("/seller");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
 });
 
 // add to favorites from mens page

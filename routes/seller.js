@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 
 
-module.exports = (db, userId) => {
+module.exports = (db) => {
  router.get("/seller", (req, res) => {
   const queryParams = [];
 
@@ -19,7 +19,8 @@ module.exports = (db, userId) => {
       const products = data.rows;
       const templateVar = {
         items: products,
-        filter: 'seller',
+        buyerId: 3,
+        filter: "seller"
       };
       res.render("seller", templateVar);
     })
