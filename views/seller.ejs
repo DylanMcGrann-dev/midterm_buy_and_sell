@@ -58,7 +58,7 @@
                   <td><%= item.size %></td>
                   <td><%= item.category %></td>
                   <td><%= item.description %></td>
-                  <td>$<%= item.price_of_product %></td>
+                  <td>$<%= item.price_of_product/100 %></td>
                   <td>
                     <form method="POST" type="submit">
                       <button id ="btnsold"  class="btn btn-primary">SOLD</button>
@@ -104,7 +104,7 @@
                     <td><%= item.size %></td>
                     <td><%= item.category %></td>
                     <td><%= item.description %></td>
-                    <td>$<%= item.price_of_product %></td>
+                    <td>$<%= item.price_of_product/100 %></td>
                     <td><%= item.sold_date %></td>
                   </tr>
                 <% } %>
@@ -116,18 +116,47 @@
           <input type="radio" id="tabnew" name="mytabs">
           <label for="tabnew">CREATE NEW LISTING</label>
             <div class="tab">
+              <main>
               <h2>CREATE NEW LISTING</h2>
               <br>
-              <table class="table_new">
-                <tr>
-                  <th scope="col">IMAGE</th>
-                  <th scope="col">GENDER</th>
-                  <th scope="col">SIZE</th>
-                  <th scope="col">CATEGORY</th>
-                  <th scope="col">DESCRIPTION</th>
-                  <th scope="col">PRICE</th>
-                </tr>
-              </table>
+              <div class="container">
+                <form action="submit">
+                  <label for="imageUrl">IMAGE URL:</label>
+                  <input type="text" id="newImageUrl" placeholder="Enter Image URL">
+                  <br>
+                  <label for="gender">GENDER:</label>
+                  <select id="newGender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="unisex">Unisex</option>
+                  </select>
+                  <br>
+                  <label for="size">SIZE:</label>
+                  <select id="newSize" name="size">
+                    <option value="small">S</option>
+                    <option value="medium">M</option>
+                    <option value="large">L</option>
+                  </select>
+                  <br>
+                  <label for="category">CATEGORY:</label>
+                  <select id="newCategory" name="category">
+                    <option value="pants">Pants</option>
+                    <option value="shorts">Shorts</option>
+                    <option value="leggings">Leggings</option>
+                    <option value="hoodies">Hoodies</option>
+                    <option value="t-shrts">T-Shirts</option>
+                  </select>
+                  <br>
+                  <label for="newDescription">DESCRIPTION:</label>
+                  <input type="text" id="newDescription" name="newDescription" placeholder="Enter Description">
+                  <br>
+                  <label for="price">PRICE:</label>
+                  <input type="text" id="newPrice" name="price" placeholder="Enter Price">
+                  <br>
+                  <input type="submit" id="newSubmit" value="CREATE NEW LISTING">
+                </form>
+              </div>
+            </main>
             </div>
 
             <input type="radio" id="tabmessages" name="mytabs">
