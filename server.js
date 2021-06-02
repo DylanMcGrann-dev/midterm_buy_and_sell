@@ -64,22 +64,6 @@ app.post("/cart/:offerId/delete", (req, res) => {
     });
 });
 
-app.post("/checkout/:buyerId", (req, res) => {
-  const buyerId = req.params.buyerId;
-  let queryString = `DELETE FROM offers WHERE buyer_id = $1`;
-  return db
-    .query(queryString, [buyerId])
-    .then(() => {
-      let queryString2 = `SELECT GETDATE() WHERE id = 1`;
-      return db.query(queryString2).then(() => {
-        res.redirect("/");
-      });
-    })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
-    });
-});
-
 // app.post("/products/:productid/:buyerid", (req, res) => {
 //   const addingItems = req.params.offerId;
 //   let queryString = `INSERT INTO offers (product_id, buyer_id) VALUES $1, $2`;

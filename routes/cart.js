@@ -10,10 +10,11 @@ module.exports = (db) => {
       SELECT offers.id, product_id, products.photo_url, products.description, products.price_of_product, users.name FROM offers
       JOIN products on product_id = products.id
       JOIN users ON user_id = users.id
-      WHERE buyer_id = 2`;
+      WHERE buyer_id = 3`;
     return db
       .query(queryString, queryParams)
       .then((data) => {
+        console.log(data)
         const products = data.rows;
         let totalPrice = data.rows.reduce(
           (total, product) => (total += product.price_of_product),
@@ -22,7 +23,7 @@ module.exports = (db) => {
         const templateVar = {
           offers: products,
           totalPrice,
-          buyerId: 3,
+          buyerId: 3
         };
 
         res.render("offers_cart", templateVar);
