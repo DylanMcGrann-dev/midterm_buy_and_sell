@@ -226,10 +226,69 @@ word-wrap: break-word;
   border-style: solid;
 }
 
-
-
+//-----Format Create New Listing Tab-----//
+.container {
+  background-color:rgb(235, 235, 235);
+  padding: 10%;
+}
 .container label {
-  background-color: white;
+  background-color: rgb(235, 235, 235);
   color: black;
+  font-weight: 600;
+  font-size: 14pt;
+  border-right: 0px;
+  border-radius: 0px 0px 0px 0px;
 }
 
+.container #newImageUrl {
+  height: 50px;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 35px;
+}
+
+.container #newGender {
+  height: 50px;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 60px;
+}
+
+.container #newSize {
+  height: 50px;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 95px;
+}
+
+.container #newCategory {
+  height: 50px;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.container #newDescription {
+  height: 50px;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 8px;
+}
+
+.container #newPrice {
+  height: 50px;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 78px;
+}
+
+.container #newSubmit {
+  height: 50px;
+  width: 565px;
+  margin-top: 10%;
+  margin-left: 20px;
+  font-size: 14pt;
+  font-weight: 600;
+  color: white;
+  background-color: #101010;
+}
