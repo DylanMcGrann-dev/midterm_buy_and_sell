@@ -77,7 +77,7 @@ app.post("/cart/:offerId/delete", (req, res) => {
 //     });
 // });
 
-app.get("/seller", (req, res) => {
+app.get("/seller=", (req, res) => {
   res.render("seller");
 });
 

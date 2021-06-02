@@ -19,7 +19,7 @@ module.exports = (db, userId) => {
       const products = data.rows;
       const templateVar = {
         items: products,
-        filter: 'seller',
+        filter: 'active',
       };
       res.render("seller", templateVar);
     })
