@@ -22,7 +22,7 @@
   <body>
     <%- include("partials/_header") %>
     <main>
-      <h3 id="title"><b>SHOPPING CART</b></h3>
+      <h3 id="title"><b>WISHLIST</b></h3>
       <div><% for (let offer of offers) { %></div>
         <div class="whole_container">
           <img class="offer_picture" src='<%= offer.photo_url %>'/>
@@ -46,12 +46,6 @@
           </div>
         </div>
         <% } %>
-        <div class="checkout">
-          <p>Total Price : $ <%= totalPrice/100 %></p>
-          <form method="POST" action="/checkout/<%= buyerId %>">
-            <button type="submit" class="btn btn-success">Checkout</button>
-          </form>
-        </div>
     </main>
     <%- include("partials/_footer") %>
   </body>
