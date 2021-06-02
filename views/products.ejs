@@ -94,12 +94,12 @@
             <span class="description"><%= item.description %></span>
             <textarea>message seller</textarea>
             <div>
-              <!-- <% if (filter === "all") { %> -->
+              <% if (filter === "all") { %>
                 <span>Price : $ <%= item.price_of_product/100 %></span>
                 <form method="POST" action="/products/<%= buyerId %>/<%= item.id %>">
                   <button class="buyNow" type="submit">add to favorites</button>
                 </form>
-              <!-- <% } else if (filter === "womens") { %>
+              <% } else if (filter === "womens") { %>
                 <span>Price : $ <%= item.price_of_product/100 %></span>
                 <form method="POST" action="/products/womens/<%= buyerId %>/<%= item.id %>">
                   <button class="buyNow" type="submit">add to favorites</button>
@@ -109,7 +109,7 @@
                 <form method="POST" action="/products/mens/<%= buyerId %>/<%= item.id %>">
                   <button class="buyNow" type="submit">add to favorites</button>
                 </form>
-                <% } %> -->
+                <% } %>
             </div>
           </div>
       </div>

@@ -7,7 +7,7 @@ module.exports = (db) => {
     const queryParams = [];
 
     let queryString = `
-      SELECT *, users.name as userName
+      SELECT products.id, products.photo_url, products.price_of_product, products.description, users.name as userName
       FROM products
       JOIN users ON users.id = user_id
       WHERE gender = 'men'
@@ -27,6 +27,7 @@ module.exports = (db) => {
         const templetvar = {
           filter: 'mens',
           items: products,
+          buyerId: 3
         };
         res.render("products", templetvar);
       })
