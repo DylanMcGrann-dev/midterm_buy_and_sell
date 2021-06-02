@@ -30,6 +30,7 @@
       <img class="filterStyle" src="\images\mens_pants.jpeg">
       <img class="filterStyle" src="\images\shirt.jpeg">
       <img class="filterStyle" src="\images\mens_hoodie.jpeg">
+      <img class="filterStyle" src="\images\dollarbillz.png">
     </span>
     <% } else if (filter === "womens") {%>
       <span class="filterSpan">
@@ -37,6 +38,7 @@
         <img class="filterStyle" src="\images\womens_shirt.jpeg">
         <img class="filterStyle" src="\images\womens_leggings.jpeg">
         <img class="filterStyle" src="\images\womens_hoodie.jpeg">
+        <img class="filterStyle" src="\images\dollarbillz.png">
       </span>
     <% } else if (filter === "all") { %>
     <span class="filterSpan">
@@ -44,6 +46,7 @@
       <img class="filterStyle" src="\images\womens_shirt.jpeg">
       <img class="filterStyle" src="\images\womens_leggings.jpeg">
       <img class="filterStyle" src="\images\mens_hoodie.jpeg">
+      <img class="filterStyle" src="\images\dollarbillz.png">
     </span>
     <% } %>
     <div class="products-wrapper"><% for (let item of items) { %>
@@ -53,7 +56,11 @@
           <div class="productInfo">
             <span class="userSpanStyle"><%= item.username %></span>
             <span class="description"><%= item.description %></span>
-            <button class="buyNow">$<%= item.price_of_product %></button>
+            <textarea>message seller</textarea>
+            <div>
+              <span>$<%= item.price_of_product %></span>
+              <button class="buyNow">send message</button>
+            </div>
           </div>
       </div>
     </span>

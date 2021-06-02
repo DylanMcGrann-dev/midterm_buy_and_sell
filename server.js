@@ -48,6 +48,8 @@ app.use(index(db));
 const seller = require("./routes/seller");
 app.use(seller(db));
 
+
+
 //deleting cart items
 app.post("/cart/:offerId/delete", (req, res) => {
   const offerId = req.params.offerId;
