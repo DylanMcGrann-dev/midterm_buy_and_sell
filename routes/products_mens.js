@@ -11,15 +11,22 @@ module.exports = (db) => {
       FROM products
       JOIN users ON users.id = user_id
       WHERE gender = 'men'
-      ;`;
+      GROUP BY products.id, users.id `;
+
+    const priceFilter = req.query.pricefilter;
+
+    if (priceFilter) {
+      queryString += priceFilter === 'asc' ? `ORDER BY price_of_product ASC` : `ORDER BY price_of_product DESC`;
+    }
 
     return db
       .query(queryString, queryParams)
       .then((data) => {
         const products = data.rows;
+        console.log(products);
         const templetvar = {
           filter: 'mens',
-          items: products
+          items: products,
         };
         res.render("products", templetvar);
       })
@@ -28,4 +35,4 @@ module.exports = (db) => {
       });
   });
   return router;
-}
+};
