@@ -49,7 +49,8 @@
       <img class="filterStyle" src="\images\dollarbillz.png">
     </span>
     <% } %>
-    <div class="products-wrapper"><% for (let item of items) { %>
+    <% for (let item of items) { %>
+    <div class="products-wrapper">
     <span class="filterItems">
       <div class="itemStyle">
         <img  class="imgFix" src="<%= item.photo_url %>">

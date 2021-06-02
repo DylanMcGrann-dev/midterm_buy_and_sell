@@ -48,9 +48,15 @@ tr img:hover {
   border-color:rgb(153, 201, 202)
 }
 
- marquee img {
-  width: 20%;
-  height: 8em;
-
+marquee img {
+  max-width: 200px;
+  height: auto;
+  margin-left: 100px;
+  margin-right: 100px;
   margin-top: 2.5em;
- }
+}
+
+.marqueeContent {
+  display: flex;
+
+}
