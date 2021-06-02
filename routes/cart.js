@@ -7,9 +7,10 @@ module.exports = (db) => {
     const queryParams = [];
 
     let queryString = `
-      SELECT product_id, products.photo_url, products.description, products.price_of_product, products.user_id FROM offers
+      SELECT offers.id, product_id, products.photo_url, products.description, products.price_of_product, users.name FROM offers
       JOIN products on product_id = products.id
-      WHERE buyer_id = 4`;
+      JOIN users ON user_id = users.id
+      WHERE buyer_id = 2`;
     return db
       .query(queryString, queryParams)
       .then((data) => {
@@ -21,6 +22,7 @@ module.exports = (db) => {
         const templateVar = {
           offers: products,
           totalPrice,
+          buyerId: 3,
         };
 
         res.render("offers_cart", templateVar);
@@ -30,4 +32,4 @@ module.exports = (db) => {
       });
   });
   return router;
-}
+};
