@@ -64,18 +64,20 @@ app.post("/cart/:offerId/delete", (req, res) => {
     });
 });
 
-// app.post("/products/:productid/:buyerid", (req, res) => {
-//   const addingItems = req.params.offerId;
-//   let queryString = `INSERT INTO offers (product_id, buyer_id) VALUES $1, $2`;
-//   return db
-//     .query(queryString, [addingItems])
-//     .then(() => {
-//       res.redirect("/cart");
-//     })
-//     .catch((err) => {
-//       res.status(500).json({ error: err.message });
-//     });
-// });
+app.post("/products/:productid/:buyerid", (req, res) => {
+  const item1 = req.params.buyerid;
+  const item2 = req.params.productid;
+
+  let queryString = `INSERT INTO offers (product_id, buyer_id) VALUES ($1, $2)`;
+  return db
+    .query(queryString, [item1, item2])
+    .then(() => {
+      res.redirect("/products");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
 
 app.get("/seller", (req, res) => {
   res.render("seller");

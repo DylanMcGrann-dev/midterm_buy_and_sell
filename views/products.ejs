@@ -30,7 +30,7 @@
       <img class="filterStyle" src="\images\mens_pants.jpeg">
       <img class="filterStyle" src="\images\shirt.jpeg">
       <img class="filterStyle" src="\images\mens_hoodie.jpeg">
-      <img class="filterStyle" src="\images\dollarbillz.png">
+
     </span>
     <% } else if (filter === "womens") {%>
       <span class="filterSpan">
@@ -38,7 +38,7 @@
         <img class="filterStyle" src="\images\womens_shirt.jpeg">
         <img class="filterStyle" src="\images\womens_leggings.jpeg">
         <img class="filterStyle" src="\images\womens_hoodie.jpeg">
-        <img class="filterStyle" src="\images\dollarbillz.png">
+
       </span>
     <% } else if (filter === "all") { %>
     <span class="filterSpan">
@@ -46,7 +46,7 @@
       <img class="filterStyle" src="\images\womens_shirt.jpeg">
       <img class="filterStyle" src="\images\womens_leggings.jpeg">
       <img class="filterStyle" src="\images\mens_hoodie.jpeg">
-      <img class="filterStyle" src="\images\dollarbillz.png">
+
     </span>
     <% } %>
     <% for (let item of items) { %>
@@ -60,7 +60,9 @@
             <textarea>message seller</textarea>
             <div>
               <span>$<%= item.price_of_product %></span>
-              <button class="buyNow">send message</button>
+              <form method="POST" action="/products/<%= item.buyer_id %>/<%= item.id %>">
+                <button type="submit" class="buyNow">add to Favourites</button>
+              </form>
             </div>
           </div>
       </div>
