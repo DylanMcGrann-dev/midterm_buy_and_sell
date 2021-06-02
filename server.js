@@ -126,7 +126,7 @@ app.post("/products/womens/:buyerid/:productid", (req, res) => {
     });
 });
 
-app.get("/seller", (req, res) => {
+app.get("/seller=", (req, res) => {
   res.render("seller");
 });
 
