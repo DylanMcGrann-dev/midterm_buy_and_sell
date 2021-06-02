@@ -7,7 +7,7 @@ module.exports = (db, userId) => {
   const queryParams = [];
 
   let queryString = `
-    SELECT *
+    SELECT products.id, products.photo_url, products.gender, products.size, products.category, products.description, products.price_of_product
     FROM products
     JOIN users ON users.id = user_id
     WHERE users.id = '1'
