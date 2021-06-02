@@ -64,15 +64,32 @@ app.post("/cart/:offerId/delete", (req, res) => {
     });
 });
 
-app.post("/products/:productid/:buyerid", (req, res) => {
-  const item1 = req.params.buyerid;
-  const item2 = req.params.productid;
+//add to favorites from all products page
+app.post("/products/:buyerid/:productid", (req, res) => {
+  const addingItems = req.params.buyerid;
+  const addingItems2 = req.params.productid;
 
-  let queryString = `INSERT INTO offers (product_id, buyer_id) VALUES ($1, $2)`;
+  let queryString = `INSERT INTO offers (buyer_id, product_id) VALUES ($1, $2)`;
   return db
-    .query(queryString, [item1, item2])
+    .query(queryString, [addingItems, addingItems2])
     .then(() => {
       res.redirect("/products");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
+//add to favorites page from products/womens
+app.post("/products/womens/:buyerid/:productid", (req, res) => {
+  const addingItems = req.params.buyerid;
+  const addingItems2 = req.params.productid;
+
+  let queryString = `INSERT INTO offers (buyer_id, product_id) VALUES ($1, $2)`;
+  return db
+    .query(queryString, [addingItems, addingItems2])
+    .then(() => {
+      res.redirect("/products/womens");
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });

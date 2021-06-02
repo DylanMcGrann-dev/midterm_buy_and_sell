@@ -14,7 +14,6 @@ module.exports = (db) => {
     return db
       .query(queryString, queryParams)
       .then((data) => {
-        console.log(data)
         const products = data.rows;
         let totalPrice = data.rows.reduce(
           (total, product) => (total += product.price_of_product),
