@@ -157,8 +157,8 @@
                       <label for="price">PRICE:</label>
                       <input type="text" id="newPrice" name="price" placeholder=" Enter Price">
                       <br>
-                      <form method="POST" action="/seller/new/">
-                      <input type="submit" id="newSubmit" value="CREATE NEW LISTING">
+                      <form method="POST" action="/submit/<%=photo_url%>/<%=gender%>/<%=size%>/<%=category%>/<%=description%>/<%=price%>">
+                      <button type="submit" id="newSubmit">CREATE NEW LISTING</button>
                     </form>
                   </div>
                 </main>

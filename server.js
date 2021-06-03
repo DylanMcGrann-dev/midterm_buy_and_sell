@@ -189,19 +189,21 @@ app.post("/seller/delete/:productId", (req, res) => {
 });
 
 //Create a New Listing
-app.post("/seller/new/:userId", (req, res) => {
-  const addingItem1 = req.params.userId;
-  const addingItem2 = req.params.item.gender;
-  const addingItem3 = req.params.item.photo_url;
-  const addingItem4 = req.params.item.description;
-  const addingItem5 = req.params.item.size;
-  const addingItem6 = req.params.item.category;
-  const addingItem7 = req.params.item.price;
-
-  let queryString = `INSERT INTO products (Userid, item.gender, item.photo_url, item.description, item.size, item.category, item.price) VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+app.post("/submit/:photo_url/:gender/:size/:category/:description/:price", (req, res) => {
+  // const addingItem1 = req.params.userid;
+  const addingItem2 = req.params.gender;
+  const addingItem3 = req.params.photo_url;
+  const addingItem4 = req.params.description;
+  const addingItem5 = req.params.size;
+  const addingItem6 = req.params.category;
+  const addingItem7 = req.params.price;
+  console.log(`Console Log Params - ${req.params}`);
+  let queryString = `INSERT INTO products (gender, photo_url, description, size, category, price) VALUES ($2, $3, $4, $5, $6, $7)`;
   return db
-    .query(queryString, [addingItem1, addingItem2, addingItem3, addingItem4, addingItem5, addingItem6, addingItem7])
+    .query(queryString, [addingItem2, addingItem3, addingItem4, addingItem5, addingItem6, addingItem7])
     .then(() => {
+
+      console.log(`Item2 ${addingItem2}`);
       res.redirect("/seller");
     })
     .catch((err) => {
