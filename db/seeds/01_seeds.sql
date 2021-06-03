@@ -1,7 +1,7 @@
 INSERT INTO users (name, email)
 VALUES ('Dominic Parks', 'hervieb@hotmail.com'),
-('Louisa Meyer', 'ksm5611@hanmail.net'),
-('Lydia Greer', 'ksm5611@naver.com'),
+('Louisa Meyer', 'dylanmcgrannit@gmail.com'),
+('Lydia Greer', 'hervieb@hotmail.com'),
 ('Mitchell Moreno', 'dylanmcgrannit@gmail.com'),
 ('Eva Stanley', 'kim.sumin.wat2014@gmail.com');
 
