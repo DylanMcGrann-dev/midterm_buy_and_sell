@@ -189,13 +189,18 @@ app.post("/seller/delete/:productId", (req, res) => {
 });
 
 //Create a New Listing
-app.post("/seller/new/", (req, res) => {
-  const addingItem1 = req.params.buyerid;
-  const addingItem2 = req.params.productid;
+app.post("/seller/new/:userId", (req, res) => {
+  const addingItem1 = req.params.userId;
+  const addingItem2 = req.params.item.gender;
+  const addingItem3 = req.params.item.photo_url;
+  const addingItem4 = req.params.item.description;
+  const addingItem5 = req.params.item.size;
+  const addingItem6 = req.params.item.category;
+  const addingItem7 = req.params.item.price;
 
-  let queryString = `INSERT INTO products (buyer_id, product_id) VALUES ($1, $2)`;
+  let queryString = `INSERT INTO products (Userid, item.gender, item.photo_url, item.description, item.size, item.category, item.price) VALUES ($1, $2, $3, $4, $5, $6, $7)`;
   return db
-    .query(queryString, [addingItem1, addingItem2])
+    .query(queryString, [addingItem1, addingItem2, addingItem3, addingItem4, addingItem5, addingItem6, addingItem7])
     .then(() => {
       res.redirect("/seller");
     })

@@ -64,7 +64,7 @@
                       <td>$ <%= item.price_of_product/100 %></td>
                     <% } %>
                     <td>
-                      <form method="POST" type="submit" id="product.id" action="seller/<%= item.id %>">
+                      <form method="POST" id="product.id" action="seller/<%= item.id %>">
                       <button id ="product" class="btn btn-primary">SOLD</button>
                       </form>
                     </td>
