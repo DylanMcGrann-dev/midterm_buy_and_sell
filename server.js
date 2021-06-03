@@ -10,6 +10,9 @@ const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
 
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
@@ -46,6 +49,7 @@ app.use(cart(db));
 const index = require("./routes/index");
 app.use(index(db));
 const seller = require("./routes/seller");
+const products = require("./routes/products");
 app.use(seller(db));
 
 
@@ -78,6 +82,58 @@ app.post("/products/:buyerid/:productid", (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
+
+app.post("/products/womens/:buyerid/:productid", (req, res) => {
+  const addingItems = req.params.buyerid;
+  const addingItems2 = req.params.productid;
+
+  let queryString = `INSERT INTO offers (buyer_id, product_id) VALUES ($1, $2)`;
+  return db
+    .query(queryString, [addingItems, addingItems2])
+    .then(() => {
+      res.redirect("/products/womens");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
+app.post("/products/:buyerid/:productid/email", (req, res) => {
+  const buyerId = req.params.buyerid;
+  const productId = req.params.productid;
+
+  let queryString = `SELECT (users.email) AS sellerEmail,
+  (SELECT users.email AS buyerEmail FROM users WHERE users.id = $1)
+  FROM products JOIN users ON user_id = users.id
+  WHERE products.id = $2 ;
+  `;
+  return db
+    .query(queryString, [buyerId, productId])
+    .then((response) => {
+      const  { selleremail, buyeremail } = response.rows[0];
+      const msg = {
+        to: buyeremail,
+        from: selleremail,
+        subject: `product enquiry: product ID[${productId}]`,
+        text: req.body['email-body'],
+      };
+
+      sgMail
+        .send(msg)
+        .then((response) => {
+          console.log(response[0].statusCode);
+          console.log(response[0].headers);
+          res.redirect("/products");
+        }).catch((err) => {
+          console.log(err);
+          res.status(500).json({error: err.message});
+        });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
 
 app.get("/seller", (req, res) => {
   res.render("seller");

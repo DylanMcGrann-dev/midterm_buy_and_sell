@@ -90,12 +90,17 @@
           <div class="productInfo">
             <span class="userSpanStyle"><%= item.username %></span>
             <span class="description"><%= item.description %></span>
-            <textarea>message seller</textarea>
             <div>
               <span>Price : $ <%= item.price_of_product/100 %></span>
               <form method="POST" action="/products/<%= buyerId %>/<%= item.id %>">
-                <button class="buyNow" type="submit">send message</button>
+                <button class="buyNow" type="submit">add to favorit</button>
               </form>
+              <span>
+                <form method="POST" action="/products/<%= buyerId %>/<%= item.id %>/email">
+                  <textarea id="email-body" name="email-body">message seller</textarea>
+                  <button class="buyNow" type="submit" >send message</button>
+                </form>
+              </span>
             </div>
           </div>
       </div>
