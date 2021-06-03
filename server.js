@@ -166,11 +166,9 @@ app.post("/seller/:productid", (req, res) => {
   .query(queryString)
 
   .then(() => {
-    console.log("response",res);
     res.redirect("/seller");
   })
   .catch((err) => {
-    console.log(err);
     res.status(500).json({ error: err.message });
   });
 });

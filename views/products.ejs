@@ -110,7 +110,6 @@
                   <button class="buyNow" type="submit">add to favorites</button>
                 </form>
               <% } else if (filter === "womens") { %>
-<<<<<<< HEAD
                 <span><form method="POST" action="/seller"><button class="buyNow" type="submit" >send message</button></form></span>
 
                 <form method="POST" action="/products/womens/<%= buyerId %>/<%= item.id %>">
@@ -120,27 +119,6 @@
                 <span><form method="POST" action="/seller"><button class="buyNow" type="submit" >send message</button></form></span>
 
                 <form method="POST" action="/products/mens/<%= buyerId %>/<%= item.id %>">
-=======
-                <div>
-                  <form class="email-action" method="POST" action="/products/<%= buyerId %>/<%= item.id %>/email">
-                    <textarea placeholder="message seller" id="email-body" name="email-body" ></textarea>
-                    <button class="buyNow" type="submit" >send message</button>
-                  </form>
-                </div>
-
-                <form class="add-favorite-action" method="POST" action="/products/womens/<%= buyerId %>/<%= item.id %>">
-                  <button class="buyNow" type="submit">add to favorites</button>
-                </form>
-              <% } else if (filter === "mens") { %>
-                <div>
-                  <form class="email-action" method="POST" action="/products/<%= buyerId %>/<%= item.id %>/email">
-                    <textarea placeholder="message seller" id="email-body" name="email-body" ></textarea>
-                    <button class="buyNow" type="submit" >send message</button>
-                  </form>
-                </div>
-
-                <form class="add-favorite-action" method="POST" action="/products/mens/<%= buyerId %>/<%= item.id %>">
->>>>>>> 026f9111766b3ff4693df2b2ba76c2d27e15c28d
                   <button class="buyNow" type="submit">add to favorites</button>
                 </form>
                 <% } %>
