@@ -131,8 +131,8 @@ app.get("/seller=", (req, res) => {
 });
 
 //Delete Currently Listed Items
-app.post("/seller/:productId/delete", (req, res) => {
-  const productId = req.params.product;
+app.post("/seller/delete/:productId", (req, res) => {
+  const productId = req.params.productId;
   let queryString = `DELETE FROM products WHERE id = $1`;
   return db
     .query(queryString, [productId])
@@ -144,7 +144,27 @@ app.post("/seller/:productId/delete", (req, res) => {
     });
 });
 
+
+//Create a New Listing
+app.post("/seller/new/", (req, res) => {
+
+const addingItem1 = req.params.buyerid;
+const addingItem2 = req.params.productid;
+
+  let queryString = `INSERT INTO products (buyer_id, product_id) VALUES ($1, $2)`;
+  return db
+    .query(queryString, [addingItems, addingItems2])
+    .then(() => {
+      res.redirect("/seller");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+  });
+
 //port page
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+
