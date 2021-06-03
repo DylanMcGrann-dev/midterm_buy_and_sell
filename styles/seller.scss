@@ -1,8 +1,9 @@
+//-----Format Tabs-----//
 .mytabs {
   font-family: 'Poppins', sans-serif;
   width: 100%;
   height: 100%;
-  padding: 3%;
+  padding: 5%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -24,7 +25,6 @@
 
 .mytabs .tab {
   width: 100%;
-  padding: 20px;
   background: white;
   order: 1;
   display: none;
@@ -34,8 +34,10 @@
 
 .mytabs .tab h2 {
   font-size: 20pt;
+  padding-top: 20px;
 }
 
+//-----Format radio buttons to show as tabbed layout-----//
 .mytabs input[type='radio']:checked + label + .tab {
   display: block;
 }
@@ -44,60 +46,255 @@
   background: rgb(153, 201, 202);
 }
 
+//-----Format Active Listings Tab-----//
 .table_active  {
   font-size: 16pt;
   font-weight: 600;
   padding: 0;
-  display: flex;
-  height: 5em;
-  width: 92vw;
   background: rgb(235, 235, 235);
-  border-bottom: 1px solid;
-
-  justify-content: space-between;
-  vertical-align: center;
 }
 
 .table_active th {
-  width: 100vw;
-  justify-content: space-between;
+  font-size: 14pt;
+  font-weight: 600;
+  padding: 0;
+  height: 5em;
+  background: rgb(235, 235, 235);
   vertical-align: center;
+  text-align: left;
 }
 
 .table_active tr {
-  width: 90vw;
+  font-size: 12pt;
+  font-weight: 200;
+  padding: 0;
+  height: 5em;
+  background: rgb(235, 235, 235);
+  vertical-align: center;
+  text-align: left;
+
+  border-bottom: 1px solid black;
 }
 
 .table_active td {
-  font-size: 16pt;
-  font-weight: 200;
-  padding: 0;
-  display: flex;
-  height: 5em;
-  width: 92vw;
-  background: rgb(235, 235, 235);
-  border-bottom: 1px solid;
-
-  justify-content: space-between;
-  vertical-align: center;
+word-wrap: break-word;
 }
 
+.table_active #id {
+  width: 2%;
+}
 
+.table_active #image {
+  width: 50%;
+}
 
+.table_active #gender {
+  width: 10%;
+}
+
+.table_active #size {
+  width: 2%;
+}
+
+.table_active #category {
+  width: 10%;
+}
+
+.table_active #description {
+  width: 30%;
+}
+
+.table_active #price {
+  width: 5%;
+}
+
+.table_active #price {
+  width: 5%;
+}
+
+.table_active #sold {
+  width: 5%;
+}
+
+.table_active #delete {
+  width: 5%;
+}
+
+.table_active thead tr {
+  border-bottom: 2px;
+  border-color: #101010;
+  border-style: solid;
+}
+
+.table_active #btndelete {
+background: black;
+font-family: poppins, sans-serif;
+color: white;
+height: 50px;
+width: 85px;
+font-size: 14pt;
+font-weight: 600;
+border-color: black;
+}
+
+.table_active #btnsold {
+  background: black;
+  font-family: poppins, sans-serif;
+  color: white;
+  height: 50px;
+  width: 85px;
+  font-size: 16pt;
+  font-weight: 600;
+  background-color: rgb(153, 201, 202);
+  border-color: rgb(153, 201, 202);
+
+  }
+
+//-----Format All Listings Tab-----//
 .table_all  {
   font-size: 16pt;
   font-weight: 600;
   padding: 0;
-  display: flex;
-  height: 5em;
-  width: 92vw;
   background: rgb(235, 235, 235);
-  border-bottom: 1px solid;
 }
 
 .table_all th {
-  width: 90vw;
-  justify-content: space-between;
+  font-size: 14pt;
+  font-weight: 600;
+  padding: 0;
+  height: 5em;
+  background: rgb(235, 235, 235);
   vertical-align: center;
+  text-align: left;
 }
 
+.table_all tr {
+  font-size: 12pt;
+  font-weight: 200;
+  padding: 0;
+  height: 5em;
+  background: rgb(235, 235, 235);
+  vertical-align: center;
+  text-align: left;
+
+  border-bottom: 1px solid black;
+}
+
+.table_all td {
+word-wrap: break-word;
+}
+
+.table_all #id {
+  width: 2%;
+}
+
+.table_all #image {
+  width: 50%;
+}
+
+.table_all #gender {
+  width: 10%;
+}
+
+.table_all #size {
+  width: 2%;
+}
+
+.table_all #category {
+  width: 10%;
+}
+
+.table_all #description {
+  width: 30%;
+}
+
+.table_all #price {
+  width: 5%;
+}
+
+.table_all #price {
+  width: 5%;
+}
+
+.table_all #sold {
+  width: 5%;
+}
+
+.table_all tbody tr {
+  border-bottom: 2px;
+  border-color: #101010;
+  border-style: solid;
+}
+
+//-----Format Create New Listing Tab-----//
+.container {
+  background-color:rgb(235, 235, 235);
+  padding: 10%;
+  align-content: center;
+}
+.container label {
+  background-color: rgb(235, 235, 235);
+  color: black;
+  font-weight: 600;
+  font-size: 14pt;
+  border-right: 0px;
+  border-radius: 0px 0px 0px 0px;
+}
+
+.container #newImageUrl {
+  height: 50px;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 40px;
+}
+
+.container #newGender {
+  height: 50px;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 59px;
+}
+
+.container #newSize {
+  height: 50px;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 95px;
+}
+
+.container #newCategory {
+  height: 50px;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.container #newDescription {
+  height: 50px;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 8px;
+}
+
+.container #newPrice {
+  height: 50px;
+  width: 400px;
+  margin-top: 10px;
+  margin-left: 78px;
+}
+
+.container #newSubmit {
+  height: 50px;
+  width: 565px;
+  margin-top: 50px;
+  margin-left: 20px;
+  font-size: 14pt;
+  font-weight: 600;
+  color: white;
+  background-color: #101010;
+  border: 0;
+}
+
+.container #newSubmit:hover {
+  background-color:rgb(153, 201, 202);
+}

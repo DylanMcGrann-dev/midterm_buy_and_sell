@@ -10,7 +10,7 @@ const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
 
-const sgMail = require('@sendgrid/mail');
+const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // PG database client/connection setup
@@ -52,10 +52,9 @@ const seller = require("./routes/seller");
 const products = require("./routes/products");
 app.use(seller(db));
 
-
-
 //deleting cart items
 app.post("/cart/:offerId/delete", (req, res) => {
+
   const offerId = req.params.offerId;
   let queryString = `DELETE FROM offers WHERE id = $1`;
   return db
@@ -68,6 +67,7 @@ app.post("/cart/:offerId/delete", (req, res) => {
     });
 });
 
+//add to favorites from all products page
 app.post("/products/:buyerid/:productid", (req, res) => {
   const addingItems = req.params.buyerid;
   const addingItems2 = req.params.productid;
@@ -83,7 +83,8 @@ app.post("/products/:buyerid/:productid", (req, res) => {
     });
 });
 
-app.post("/products/womens/:buyerid/:productid", (req, res) => {
+// add to favorites from mens page
+app.post("/products/mens/:buyerid/:productid", (req, res) => {
   const addingItems = req.params.buyerid;
   const addingItems2 = req.params.productid;
 
@@ -91,7 +92,7 @@ app.post("/products/womens/:buyerid/:productid", (req, res) => {
   return db
     .query(queryString, [addingItems, addingItems2])
     .then(() => {
-      res.redirect("/products/womens");
+      res.redirect("/products/mens");
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
@@ -110,12 +111,12 @@ app.post("/products/:buyerid/:productid/email", (req, res) => {
   return db
     .query(queryString, [buyerId, productId])
     .then((response) => {
-      const  { selleremail, buyeremail } = response.rows[0];
+      const { selleremail, buyeremail } = response.rows[0];
       const msg = {
         to: buyeremail,
         from: selleremail,
         subject: `product enquiry: product ID[${productId}]`,
-        text: req.body['email-body'],
+        text: req.body["email-body"],
       };
 
       sgMail
@@ -124,9 +125,10 @@ app.post("/products/:buyerid/:productid/email", (req, res) => {
           console.log(response[0].statusCode);
           console.log(response[0].headers);
           res.redirect("/products");
-        }).catch((err) => {
+        })
+        .catch((err) => {
           console.log(err);
-          res.status(500).json({error: err.message});
+          res.status(500).json({ error: err.message });
         });
     })
     .catch((err) => {
@@ -134,8 +136,38 @@ app.post("/products/:buyerid/:productid/email", (req, res) => {
     });
 });
 
+//add to favorites page from products/womens
+app.post("/products/womens/:buyerid/:productid", (req, res) => {
+  const addingItems = req.params.buyerid;
+  const addingItems2 = req.params.productid;
 
-app.get("/seller", (req, res) => {
+  let queryString = `INSERT INTO offers (buyer_id, product_id) VALUES ($1, $2)`;
+  return db
+    .query(queryString, [addingItems, addingItems2])
+    .then(() => {
+      res.redirect("/products/womens");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+      4;
+    });
+});
+
+app.post("/seller/:buyerId", (res, req) => {
+  const item = req.params.buyerId;
+  console.log(item);
+  let queryString = `INSERT INTO products (sold_date) VALUES (Date.now())`;
+  return db
+    .query(queryString, item)
+    .then(() => {
+      res.redirect("/sellers");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
+app.get("/seller=", (req, res) => {
   res.render("seller");
 });
 

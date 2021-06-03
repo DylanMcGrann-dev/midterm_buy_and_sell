@@ -5,7 +5,7 @@ main {
 .filterSpan {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 45px;
+  margin-top: 15px;
   height: 180px;
   margin-bottom: 15px;
 }
@@ -51,10 +51,11 @@ main {
   font-family: 'Poppins', sans-serif;
 }
 .buyNow {
-  background-color: teal;
-  border-radius: 8px;
-  width: 120px;
-  margin-left: 280px;
+  background-color: black;
+  height: 40px;
+  width: 150px;
+  color:snow;
+  border: none;
 }
 .buyNow:hover {
   background-color: rgb(153, 201, 202);
@@ -80,4 +81,27 @@ main {
   margin-right: 40px;
   max-width: 300px;
   height: auto;
+}
+.filterByPrice {
+  display: flex;
+  align-self: flex-end;
+}
+
+.buttonsNprice {
+  position: relative;
+}
+
+.email-action {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-favorite-action {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+#email-body {
+  margin-bottom: 16px;
 }
