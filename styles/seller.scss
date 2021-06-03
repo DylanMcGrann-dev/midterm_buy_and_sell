@@ -230,6 +230,7 @@ word-wrap: break-word;
 .container {
   background-color:rgb(235, 235, 235);
   padding: 10%;
+  align-content: center;
 }
 .container label {
   background-color: rgb(235, 235, 235);
@@ -244,14 +245,14 @@ word-wrap: break-word;
   height: 50px;
   width: 400px;
   margin-top: 10px;
-  margin-left: 35px;
+  margin-left: 40px;
 }
 
 .container #newGender {
   height: 50px;
   width: 400px;
   margin-top: 10px;
-  margin-left: 60px;
+  margin-left: 59px;
 }
 
 .container #newSize {
@@ -285,10 +286,15 @@ word-wrap: break-word;
 .container #newSubmit {
   height: 50px;
   width: 565px;
-  margin-top: 10%;
+  margin-top: 50px;
   margin-left: 20px;
   font-size: 14pt;
   font-weight: 600;
   color: white;
   background-color: #101010;
+  border: 0;
+}
+
+.container #newSubmit:hover {
+  background-color:rgb(153, 201, 202);
 }
