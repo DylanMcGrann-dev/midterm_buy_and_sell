@@ -51,10 +51,11 @@ main {
   font-family: 'Poppins', sans-serif;
 }
 .buyNow {
-  background-color: teal;
-  border-radius: 8px;
-  width: 120px;
-  margin-left: 280px;
+  background-color: black;
+  height: 40px;
+  width: 150px;
+  color:snow;
+  border: none;
 }
 .buyNow:hover {
   background-color: rgb(153, 201, 202);
@@ -85,4 +86,8 @@ main {
   display: flex;
   align-self: flex-end;
 }
-
+.buttonsNprice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

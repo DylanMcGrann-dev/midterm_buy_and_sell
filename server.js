@@ -80,6 +80,22 @@ app.post("/products/:buyerid/:productid", (req, res) => {
     });
 });
 
+// add to favorites from mens page
+app.post("/products/mens/:buyerid/:productid", (req, res) => {
+  const addingItems = req.params.buyerid;
+  const addingItems2 = req.params.productid;
+
+  let queryString = `INSERT INTO offers (buyer_id, product_id) VALUES ($1, $2)`;
+  return db
+    .query(queryString, [addingItems, addingItems2])
+    .then(() => {
+      res.redirect("/products/mens");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
 //add to favorites page from products/womens
 app.post("/products/womens/:buyerid/:productid", (req, res) => {
   const addingItems = req.params.buyerid;
@@ -92,8 +108,22 @@ app.post("/products/womens/:buyerid/:productid", (req, res) => {
       res.redirect("/products/womens");
     })
     .catch((err) => {
-      res.status(500).json({ error: err.message });
+      res.status(500).json({ error: err.message });4
     });
+});
+
+app.post("/seller/:buyerId",(res, req) => {
+  const item = req.params.buyerId;
+  console.log(item);
+  let queryString = `INSERT INTO products (sold_date) VALUES (Date.now())`;
+  return db
+  .query(queryString, item)
+  .then(() => {
+    res.redirect("/sellers");
+  })
+  .catch((err) => {
+    res.status(500).json({ error: err.message });4
+  });
 });
 
 app.get("/seller=", (req, res) => {

@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 
 
-module.exports = (db, userId) => {
+module.exports = (db) => {
  router.get("/seller", (req, res) => {
   const queryParams = [];
 
