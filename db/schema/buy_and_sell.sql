@@ -18,8 +18,6 @@ CREATE TABLE products (
   sold_date DATE
 );
 
-
-
 CREATE TABLE offers (
   id SERIAL PRIMARY KEY NOT NULL,
   buyer_id INTEGER REFERENCES users(id) ON DELETE CASCADE,

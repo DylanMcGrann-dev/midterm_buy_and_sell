@@ -55,4 +55,12 @@
   display: block;
   width: 100%;
   margin-bottom: 20px;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.inner_footer .footer_fourth li{
+  list-style-type: none;
+  display: inline-block;
+  padding-right: 20px;
 }

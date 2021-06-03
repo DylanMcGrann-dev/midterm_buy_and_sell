@@ -54,7 +54,6 @@ app.use(seller(db));
 
 //deleting cart items
 app.post("/cart/:offerId/delete", (req, res) => {
-
   const offerId = req.params.offerId;
   let queryString = `DELETE FROM offers WHERE id = $1`;
   return db
@@ -153,7 +152,7 @@ app.post("/products/womens/:buyerid/:productid", (req, res) => {
 });
 
 app.post("/seller/:productid", (req, res) => {
-  const dateInNano = new Date()
+  const dateInNano = new Date();
   const year = dateInNano.getFullYear();
   const month = dateInNano.getMonth();
   const day = dateInNano.getDay();
@@ -163,16 +162,50 @@ app.post("/seller/:productid", (req, res) => {
   let queryString = `UPDATE products SET sold_date = CAST('${today}' AS DATE) WHERE id = ${id}`;
 
   return db
-  .query(queryString)
+    .query(queryString)
+    .then(() => {
 
-  .then(() => {
-    res.redirect("/seller");
-  })
-  .catch((err) => {
-    res.status(500).json({ error: err.message });
-  });
+      res.redirect("/seller");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
 });
 
+//Delete Currently Listed Items
+app.post("/seller/delete/:productId", (req, res) => {
+  const productId = req.params.productId;
+  let queryString = `DELETE FROM products WHERE id = $1`;
+  return db
+    .query(queryString, [productId])
+    .then(() => {
+      res.redirect("/seller");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
+//Create a New Listing
+app.post("/seller/:photo_url/:gender/:size/:descrition/:category/:price ", (req, res) => {
+  const addingItem1 = req.params.userId;
+  const addingItem2 = req.params.gender;
+  const addingItem3 = req.params.photo_url;
+  const addingItem4 = req.params.description;
+  const addingItem5 = req.params.size;
+  const addingItem6 = req.params.category;
+  const addingItem7 = req.params.price;
+  console.log("addingItem1",addingItem1);
+  let queryString = `INSERT INTO products (Userid, gender, photo_url, description, size, category, price) VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+  return db
+    .query(queryString, [addingItem1, addingItem2, addingItem3, addingItem4, addingItem5, addingItem6, addingItem7])
+    .then(() => {
+      res.redirect("/seller");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
 
 //port page
 app.listen(PORT, () => {
