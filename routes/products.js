@@ -20,7 +20,7 @@ module.exports = (db) => {
     return db
       .query(queryString, queryParams)
       .then((data) => {
-
+        console.log("data:", data);
         const products = data.rows;
         const templetvar = {
           filter: "all",

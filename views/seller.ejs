@@ -51,6 +51,7 @@
               </thead>
               <tbody>
                 <% for(let item of items) { %>
+                  <% if (item.sold_date === null) { %>
                   <tr>
                     <td><%= item.id %></td>
                     <td><%= item.photo_url %></td>
@@ -58,21 +59,19 @@
                     <td><%= item.size %></td>
                     <td><%= item.category %></td>
                     <td><%= item.description %></td>
-                    <% if (item.sold_date !== null) { %>
-                    <td>SOLD</td>
-                    <% } else { %>
-                      <td>$ <%= item.price_of_product/100 %></td>
-                    <% } %>
+                    <td>$ <%= item.price_of_product/100 %></td>
                     <td>
                       <form method="POST" id="product.id" action="seller/<%= item.id %>">
-                      <button id ="product" class="btn btn-primary">SOLD</button>
+                        <button id ="product" class="btn btn-primary">SOLD</button>
                       </form>
                     </td>
                     <td>
                       <form method="POST" action="/seller/delete/<%= item.id %>">
-                      <button id="btndelete" type="submit" class="btn btn-primary">DELETE</button>
+                        <button id="btndelete" type="submit" class="btn btn-primary">DELETE</button>
                       </form>
                     </td>
+                    <% } else { %>
+                    <% } %>
                   </tr>
                 <% } %>
               </tbody>
@@ -124,9 +123,9 @@
                 <h2>CREATE NEW LISTING</h2>
                 <br>
                   <div class="container">
-                    <form action="submit">
-                      <label for="imageUrl">IMAGE URL</label>
-                      <input type="text" id="newImageUrl" placeholder=" Enter Image URL">
+                    <form  method="POST" action="/seller/create/item">
+                      <label for="imageUrl" >IMAGE URL</label>
+                      <input type="text" id="newImageUrl" placeholder=" Enter Image URL" name='photoUrl'>
                       <br>
                       <label for="gender">GENDER:</label>
                       <select id="newGender" name="gender">
@@ -137,9 +136,9 @@
                       <br>
                       <label for="size">SIZE:</label>
                       <select id="newSize" name="size">
-                        <option value="small">S</option>
-                        <option value="medium">M</option>
-                        <option value="large">L</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
                       </select>
                       <br>
                       <label for="category">CATEGORY:</label>
@@ -157,7 +156,7 @@
                       <label for="price">PRICE:</label>
                       <input type="text" id="newPrice" name="price" placeholder=" Enter Price">
                       <br>
-                      <form method="POST" action="/submit/<%=photo_url%>/<%=gender%>/<%=size%>/<%=category%>/<%=description%>/<%=price%>">
+
                       <button type="submit" id="newSubmit">CREATE NEW LISTING</button>
                     </form>
                   </div>
