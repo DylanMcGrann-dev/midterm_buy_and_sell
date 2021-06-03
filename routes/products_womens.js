@@ -23,7 +23,6 @@ module.exports = (db) => {
       .query(queryString, queryParams)
       .then((data) => {
         const products = data.rows;
-        console.log(products);
         const templetvar = {
           filter: 'womens',
           items: products,
