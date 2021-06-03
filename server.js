@@ -112,8 +112,8 @@ app.post("/products/:buyerid/:productid/email", (req, res) => {
     .then((response) => {
       const { selleremail, buyeremail } = response.rows[0];
       const msg = {
-        to: buyeremail,
-        from: selleremail,
+        to: selleremail,
+        from: buyeremail,
         subject: `product enquiry: product ID[${productId}]`,
         text: req.body["email-body"],
       };
@@ -186,19 +186,12 @@ app.post("/seller/delete/:productId", (req, res) => {
     });
 });
 
-//Create a New Listing
-app.post("/seller/:photo_url/:gender/:size/:descrition/:category/:price ", (req, res) => {
-  const addingItem1 = req.params.userId;
-  const addingItem2 = req.params.gender;
-  const addingItem3 = req.params.photo_url;
-  const addingItem4 = req.params.description;
-  const addingItem5 = req.params.size;
-  const addingItem6 = req.params.category;
-  const addingItem7 = req.params.price;
-  console.log("addingItem1",addingItem1);
-  let queryString = `INSERT INTO products (Userid, gender, photo_url, description, size, category, price) VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+// Create a New Listing
+app.post("/seller/create/item", (req, res) => {
+
+  let queryString = `INSERT INTO products (user_id, photo_url, gender, size, category, description, price_of_product) VALUES ($1, $2, $3, $4, $5, $6, $7)`;
   return db
-    .query(queryString, [addingItem1, addingItem2, addingItem3, addingItem4, addingItem5, addingItem6, addingItem7])
+    .query(queryString, [1, req.body.photoUrl, req.body.gender, req.body.size, req.body.category, req.body.newDescription, req.body.price])
     .then(() => {
       res.redirect("/seller");
     })
@@ -206,6 +199,7 @@ app.post("/seller/:photo_url/:gender/:size/:descrition/:category/:price ", (req,
       res.status(500).json({ error: err.message });
     });
 });
+
 
 //port page
 app.listen(PORT, () => {
