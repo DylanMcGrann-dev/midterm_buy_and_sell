@@ -100,6 +100,20 @@ app.get("/seller=", (req, res) => {
   res.render("seller");
 });
 
+//Delete Currently Listed Items
+app.post("/seller/:productId/delete", (req, res) => {
+  const productId = req.params.product;
+  let queryString = `DELETE FROM products WHERE id = $1`;
+  return db
+    .query(queryString, [productId])
+    .then(() => {
+      res.redirect("/seller");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
 //port page
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
