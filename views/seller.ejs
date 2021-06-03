@@ -53,19 +53,27 @@
               <% for(let item of items) { %>
                 <tr>
                   <td><%= item.id %></td>
-                  <td><img src="<%= item.photo_url %>"></td>
+                  <td><%= item.photo_url %></td>
                   <td><%= item.gender %></td>
                   <td><%= item.size %></td>
                   <td><%= item.category %></td>
                   <td><%= item.description %></td>
-                  <td>$<%= item.price_of_product/100 %></td>
+                  <% if (item.sold_date !== null) { %>
+                    <td>SOLD</td>
+                    <% } else { %>
+                      <td>$ <%= item.price_of_product/100 %></td>
+                    <% } %>
                   <td>
-                    <form method="POST" type="submit" action="cart/<% item.id %>">
-                      <button id ="btnsold" class="btn btn-primary">SOLD</button>
+<<<<<<< HEAD
+                    <button id ="btnsold" type="submit" class="btn btn-primary">SOLD</button>
+=======
+                    <form method="POST" type="submit" id="product.id" action="seller/<%= item.id %>">
+                      <button id ="product" class="btn btn-primary">SOLD</button>
                     </form>
+>>>>>>> 62b1c4a8df08e68712acb3f5cc92e43255a11457
                   </td>
                   <td>
-                    <form method="POST">
+                    <form method="POST" action="/seller/delete/<%= item.id %>">
                     <button id="btndelete" type="submit" class="btn btn-primary">DELETE</button>
                   </form>
                 </td>
@@ -153,19 +161,12 @@
                   <label for="price">PRICE:</label>
                   <input type="text" id="newPrice" name="price" placeholder=" Enter Price">
                   <br>
+                  <form method="POST" action="/seller/new/">
                   <input type="submit" id="newSubmit" value="CREATE NEW LISTING">
                 </form>
               </div>
             </main>
             </div>
-
-            <input type="radio" id="tabmessages" name="mytabs">
-            <label for="tabmessages">MESSAGES</label>
-            <div class="tab">
-              <h2>MESSAGES</h2>
-              <br>
-            </div>
-
     </div>
   </header>
 

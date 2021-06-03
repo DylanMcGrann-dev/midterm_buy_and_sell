@@ -149,29 +149,68 @@ app.post("/products/womens/:buyerid/:productid", (req, res) => {
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
-      4;
     });
 });
 
-app.post("/seller/:buyerId", (res, req) => {
-  const item = req.params.buyerId;
-  console.log(item);
-  let queryString = `INSERT INTO products (sold_date) VALUES (Date.now())`;
+app.post("/seller/:productid", (req, res) => {
+  const dateInNano = new Date()
+  const year = dateInNano.getFullYear();
+  const month = dateInNano.getMonth();
+  const day = dateInNano.getDay();
+  const today = year + "-" + month + "-" + day;
+  const id = req.params.productid;
+
+  let queryString = `UPDATE products SET sold_date = CAST('${today}' AS DATE) WHERE id = ${id}`;
+
   return db
-    .query(queryString, item)
+  .query(queryString)
+
+  .then(() => {
+    console.log("response",res);
+    res.redirect("/seller");
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json({ error: err.message });
+  });
+});
+
+
+//Delete Currently Listed Items
+app.post("/seller/delete/:productId", (req, res) => {
+  const productId = req.params.productId;
+  let queryString = `DELETE FROM products WHERE id = $1`;
+  return db
+    .query(queryString, [productId])
     .then(() => {
-      res.redirect("/sellers");
+      res.redirect("/seller");
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
 });
 
-app.get("/seller=", (req, res) => {
-  res.render("seller");
-});
+
+//Create a New Listing
+app.post("/seller/new/", (req, res) => {
+
+const addingItem1 = req.params.buyerid;
+const addingItem2 = req.params.productid;
+
+  let queryString = `INSERT INTO products (buyer_id, product_id) VALUES ($1, $2)`;
+  return db
+    .query(queryString, [addingItems, addingItems2])
+    .then(() => {
+      res.redirect("/seller");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+  });
 
 //port page
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+
