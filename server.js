@@ -108,27 +108,33 @@ app.post("/products/womens/:buyerid/:productid", (req, res) => {
       res.redirect("/products/womens");
     })
     .catch((err) => {
-      res.status(500).json({ error: err.message });4
+      res.status(500).json({ error: err.message });
     });
 });
 
-app.post("/seller/:buyerId",(res, req) => {
-  const item = req.params.buyerId;
-  console.log(item);
-  let queryString = `INSERT INTO products (sold_date) VALUES (Date.now())`;
+app.post("/seller/:productid", (req, res) => {
+  const dateInNano = new Date()
+  const year = dateInNano.getFullYear();
+  const month = dateInNano.getMonth();
+  const day = dateInNano.getDay();
+  const today = year + "-" + month + "-" + day;
+  const id = req.params.productid;
+
+  let queryString = `UPDATE products SET sold_date = CAST('${today}' AS DATE) WHERE id = ${id}`;
+
   return db
-  .query(queryString, item)
+  .query(queryString)
+
   .then(() => {
-    res.redirect("/sellers");
+    console.log("response",res);
+    res.redirect("/seller");
   })
   .catch((err) => {
-    res.status(500).json({ error: err.message });4
+    console.log(err);
+    res.status(500).json({ error: err.message });
   });
 });
 
-app.get("/seller=", (req, res) => {
-  res.render("seller");
-});
 
 //port page
 app.listen(PORT, () => {

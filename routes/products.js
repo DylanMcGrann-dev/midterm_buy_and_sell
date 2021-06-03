@@ -6,7 +6,7 @@ module.exports = (db) => {
     const queryParams = [];
 
     let queryString = `
-      SELECT products.id, products.photo_url, products.price_of_product, products.description, users.name as userName
+      SELECT products.id, products.photo_url, products.price_of_product, products.description, users.name as userName, sold_date
       FROM products
       JOIN users ON users.id = user_id
       GROUP BY products.id, users.id `;
