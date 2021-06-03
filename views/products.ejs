@@ -92,11 +92,11 @@
           <div class="productInfo">
             <span class="userSpanStyle"><%= item.username %></span>
             <span class="description"><%= item.description %></span>
+            <span>Price : $ <%= item.price_of_product/100 %></span>
             <textarea placeholder="message seller" ></textarea>
             <div class="buttonsNprice" >
               <% if (filter === "all") { %>
                 <span><form method="POST" action="/seller"><button class="buyNow" type="submit">send message</button></form></span>
-                <span>Price : $ <%= item.price_of_product/100 %></span>
                 <form method="POST" action="/products/<%= buyerId %>/<%= item.id %>">
                   <button class="buyNow" type="submit">add to favorites</button>
                 </form>

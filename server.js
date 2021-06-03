@@ -80,21 +80,6 @@ app.post("/products/:buyerid/:productid", (req, res) => {
     });
 });
 
-//send meesage to profile page
-app.post("/seller",(req,res) => {
-  const message = req.params
-  console.log("message",message);
-  let queryString = `INSERT INTO message () VALUES ($1, $2, $3)`;
-  return db
-    .query(queryString, [])
-    .then(() => {
-      res.redirect("/seller");
-    })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
-    });
-});
-
 // add to favorites from mens page
 app.post("/products/mens/:buyerid/:productid", (req, res) => {
   const addingItems = req.params.buyerid;
@@ -110,6 +95,7 @@ app.post("/products/mens/:buyerid/:productid", (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
+
 //add to favorites page from products/womens
 app.post("/products/womens/:buyerid/:productid", (req, res) => {
   const addingItems = req.params.buyerid;
@@ -124,6 +110,20 @@ app.post("/products/womens/:buyerid/:productid", (req, res) => {
     .catch((err) => {
       res.status(500).json({ error: err.message });4
     });
+});
+
+app.post("/seller/:buyerId",(res, req) => {
+  const item = req.params.buyerId;
+  console.log(item);
+  let queryString = `INSERT INTO products (sold_date) VALUES (Date.now())`;
+  return db
+  .query(queryString, item)
+  .then(() => {
+    res.redirect("/sellers");
+  })
+  .catch((err) => {
+    res.status(500).json({ error: err.message });4
+  });
 });
 
 app.get("/seller=", (req, res) => {

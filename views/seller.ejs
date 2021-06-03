@@ -53,15 +53,15 @@
               <% for(let item of items) { %>
                 <tr>
                   <td><%= item.id %></td>
-                  <td><%= item.photo_url %></td>
+                  <td><img src="<%= item.photo_url %>"></td>
                   <td><%= item.gender %></td>
                   <td><%= item.size %></td>
                   <td><%= item.category %></td>
                   <td><%= item.description %></td>
                   <td>$<%= item.price_of_product/100 %></td>
                   <td>
-                    <form method="POST" type="submit">
-                      <button id ="btnsold"  class="btn btn-primary">SOLD</button>
+                    <form method="POST" type="submit" action="cart/<% item.id %>">
+                      <button id ="btnsold" class="btn btn-primary">SOLD</button>
                     </form>
                   </td>
                   <td>
