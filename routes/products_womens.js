@@ -7,7 +7,7 @@ module.exports = (db) => {
     const queryParams = [];
 
     let queryString = `
-      SELECT products.id, products.photo_url, products.price_of_product, products.description, users.name as userName
+      SELECT products.id, products.photo_url, products.price_of_product, products.description, users.name as userName, products.sold_date as sold_date
       FROM products
       JOIN users ON users.id = user_id
       WHERE gender = 'women'
@@ -23,7 +23,6 @@ module.exports = (db) => {
       .query(queryString, queryParams)
       .then((data) => {
         const products = data.rows;
-        console.log(products);
         const templetvar = {
           filter: 'womens',
           items: products,

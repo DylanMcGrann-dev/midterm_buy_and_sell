@@ -86,8 +86,22 @@ main {
   display: flex;
   align-self: flex-end;
 }
+
 .buttonsNprice {
+  position: relative;
+}
+
+.email-action {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+}
+
+.add-favorite-action {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+#email-body {
+  margin-bottom: 16px;
 }

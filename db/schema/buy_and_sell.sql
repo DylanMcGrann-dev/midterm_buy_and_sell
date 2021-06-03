@@ -18,12 +18,10 @@ CREATE TABLE products (
   sold_date DATE
 );
 
--- CREATE TYPE statusEnum AS ENUM ('reject', 'pending', 'complete');
+
 
 CREATE TABLE offers (
   id SERIAL PRIMARY KEY NOT NULL,
-  -- current_status statusEnum,
-  -- offer_price INTEGER NOT NULL DEFAULT 0,
   buyer_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   product_id INTEGER REFERENCES products(id) ON DELETE CASCADE
 );
