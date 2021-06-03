@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>User Profile</title>
 
-    <!-- Fonts & Styling -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+  <title>User Profile</title>
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/seller.css" type="text/css" />
+  <!-- Fonts & Styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- External JS -->
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/footer.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/seller.css" type="text/css" />
 
-  <body>
+  <!-- External JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
 
-    <%- include("partials/_header") %>
+<body>
+
+  <%- include("partials/_header") %>
 
     <header>
       <div class="mytabs">
         <input type="radio" id="tabactive" name="mytabs" checked="checked">
         <label for="tabactive">ACTIVE LISTINGS</label>
-          <div class="tab">
-            <% if (filter === "active") { %>
+        <div class="tab">
+          <% if (filter==="active" ) { %>
             <h2>ACTIVE LISTINGS</h2>
             <br>
             <table class="table_active">
@@ -51,126 +52,161 @@
               </thead>
               <tbody>
                 <% for(let item of items) { %>
-                  <% if (item.sold_date === null) { %>
-                  <tr>
-                    <td><%= item.id %></td>
-                    <td><%= item.photo_url %></td>
-                    <td><%= item.gender %></td>
-                    <td><%= item.size %></td>
-                    <td><%= item.category %></td>
-                    <td><%= item.description %></td>
-                    <td>$ <%= item.price_of_product/100 %></td>
-                    <td>
-                      <form method="POST" id="product.id" action="seller/<%= item.id %>">
-                        <button id ="product" class="btn btn-primary">SOLD</button>
-                      </form>
-                    </td>
-                    <td>
-                      <form method="POST" action="/seller/delete/<%= item.id %>">
-                        <button id="btndelete" type="submit" class="btn btn-primary">DELETE</button>
-                      </form>
-                    </td>
-                    <% } else { %>
+                  <% if (item.sold_date===null) { %>
+                    <tr>
+                      <td>
+                        <%= item.id %>
+                      </td>
+                      <td>
+                        <%= item.photo_url %>
+                      </td>
+                      <td>
+                        <%= item.gender %>
+                      </td>
+                      <td>
+                        <%= item.size %>
+                      </td>
+                      <td>
+                        <%= item.category %>
+                      </td>
+                      <td>
+                        <%= item.description %>
+                      </td>
+                      <td>$ <%= item.price_of_product/100 %>
+                      </td>
+                      <td>
+                        <form method="POST" id="product.id" action="seller/<%= item.id %>">
+                          <button id="product" class="btn btn-primary">SOLD</button>
+                        </form>
+                      </td>
+                      <td>
+                        <form method="POST" action="/seller/delete/<%= item.id %>">
+                          <button id="btndelete" type="submit" class="btn btn-primary">DELETE</button>
+                        </form>
+                      </td>
+                      <% } else { %>
+                        <% } %>
+                    </tr>
                     <% } %>
-                  </tr>
-                <% } %>
               </tbody>
             </table>
             <% } %>
-          </div>
+        </div>
 
-          <input type="radio" id="taball" name="mytabs">
-          <label for="taball">ALL LISTINGS</label>
-            <div class="tab">
-              <% if (filter === "active") { %>
-              <h2>ALL LISTINGS</h2>
-              <br>
-                <table class="table_all">
-                  <thead>
-                    <tr>
-                      <th scope="col">ID</th>
-                      <th scope="col">IMAGE</th>
-                      <th scope="col">GENDER</th>
-                      <th scope="col">SIZE</th>
-                      <th scope="col">CATEGORY</th>
-                      <th scope="col">DESCRIPTION</th>
-                      <th scope="col">PRICE</th>
-                      <th scope="col">SOLD DATE</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% for(let item of items) { %>
-                      <tr>
-                        <td><%= item.id %></td>
-                        <td><%= item.photo_url %></td>
-                        <td><%= item.gender %></td>
-                        <td><%= item.size %></td>
-                        <td><%= item.category %></td>
-                        <td><%= item.description %></td>
-                        <td>$<%= item.price_of_product/100 %></td>
-                        <td><%= item.sold_date %></td>
-                      </tr>
-                    <% } %>
-                  </tbody>
-                </table>
-              <% } %>
-            </div>
+        <input type="radio" id="taball" name="mytabs">
+        <label for="taball">ALL LISTINGS</label>
+        <div class="tab">
+          <% if (filter==="active" ) { %>
+            <h2>ALL LISTINGS</h2>
+            <br>
+            <table class="table_all">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">IMAGE</th>
+                  <th scope="col">GENDER</th>
+                  <th scope="col">SIZE</th>
+                  <th scope="col">CATEGORY</th>
+                  <th scope="col">DESCRIPTION</th>
+                  <th scope="col">PRICE</th>
+                  <th scope="col">SOLD DATE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(let item of items) { %>
+                  <tr>
+                    <td>
+                      <%= item.id %>
+                    </td>
+                    <td>
+                      <%= item.photo_url %>
+                    </td>
+                    <td>
+                      <%= item.gender %>
+                    </td>
+                    <td>
+                      <%= item.size %>
+                    </td>
+                    <td>
+                      <%= item.category %>
+                    </td>
+                    <td>
+                      <%= item.description %>
+                    </td>
+                    <td>$<%= item.price_of_product/100 %>
+                    </td>
+                    <td>
+                      <%= item.sold_date %>
+                    </td>
+                  </tr>
+                  <% } %>
+              </tbody>
+            </table>
+            <% } %>
+        </div>
 
-            <input type="radio" id="tabnew" name="mytabs">
-            <label for="tabnew">CREATE NEW LISTING</label>
-              <div class="tab">
-                <main>
-                <h2>CREATE NEW LISTING</h2>
+        <input type="radio" id="tabnew" name="mytabs">
+        <label for="tabnew">CREATE NEW LISTING</label>
+        <div class="tab">
+          <main>
+            <h2>CREATE NEW LISTING</h2>
+            <br>
+            <div class="container">
+              <form method="POST" action="/seller/create/item">
+                <label for="imageUrl">IMAGE URL</label>
+                <input type="text" id="newImageUrl" placeholder=" Enter Image URL" name='photoUrl'>
                 <br>
-                  <div class="container">
-                    <form  method="POST" action="/seller/create/item">
-                      <label for="imageUrl" >IMAGE URL</label>
-                      <input type="text" id="newImageUrl" placeholder=" Enter Image URL" name='photoUrl'>
-                      <br>
-                      <label for="gender">GENDER:</label>
-                      <select id="newGender" name="gender">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="unisex">Unisex</option>
-                      </select>
-                      <br>
-                      <label for="size">SIZE:</label>
-                      <select id="newSize" name="size">
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                      </select>
-                      <br>
-                      <label for="category">CATEGORY:</label>
-                      <select id="newCategory" name="category">
-                        <option value="pants">Pants</option>
-                        <option value="shorts">Shorts</option>
-                        <option value="leggings">Leggings</option>
-                        <option value="hoodies">Hoodies</option>
-                        <option value="t-shrts">T-Shirts</option>
-                      </select>
-                      <br>
-                      <label for="newDescription">DESCRIPTION:</label>
-                      <input type="text" id="newDescription" name="newDescription" placeholder=" Enter Description">
-                      <br>
-                      <label for="price">PRICE:</label>
-                      <input type="text" id="newPrice" name="price" placeholder=" Enter Price">
-                      <br>
+                <label for="gender">GENDER:</label>
+                <select id="newGender" name="gender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="unisex">Unisex</option>
+                </select>
+                <br>
+                <label for="size">SIZE:</label>
+                <select id="newSize" name="size">
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                </select>
+                <br>
+                <label for="category">CATEGORY:</label>
+                <select id="newCategory" name="category">
+                  <option value="pants">Pants</option>
+                  <option value="shorts">Shorts</option>
+                  <option value="leggings">Leggings</option>
+                  <option value="hoodies">Hoodies</option>
+                  <option value="t-shrts">T-Shirts</option>
+                </select>
+                <br>
+                <label for="newDescription">DESCRIPTION:</label>
+                <input type="text" id="newDescription" name="newDescription" placeholder=" Enter Description">
+                <br>
+                <label for="price">PRICE:</label>
+                <input type="text" id="newPrice" name="price" placeholder=" Enter Price">
+                <br>
 
-                      <button type="submit" id="newSubmit">CREATE NEW LISTING</button>
-                    </form>
-                  </div>
-                </main>
-              </div>
+                <button type="submit" id="newSubmit">CREATE NEW LISTING</button>
+              </form>
+            </div>
+          </main>
+        </div>
       </div>
     </header>
 
-  <%- include("partials/_footer") %>
+    <%- include("partials/_footer") %>
 
-  <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <!-- Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
-  </body>
+</body>
+
 </html>
