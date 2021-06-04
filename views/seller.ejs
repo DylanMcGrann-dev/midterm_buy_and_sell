@@ -54,13 +54,27 @@
                 <% for(let item of items) { %>
                   <% if (item.sold_date===null) { %>
                     <tr>
-                      <td><%= item.id %></td>
-                      <td><img src="<%= item.photo_url %>"></td>
-                      <td><%= item.gender %></td>
-                      <td><%= item.size %></td>
-                      <td><%= item.category %></td>
-                      <td><%= item.description %></td>
-                      <td>$ <%= item.price_of_product/100 %></td>
+                      <td>
+                        <%= item.id %>
+                      </td>
+                      <td>
+                        <img src="<%= item.photo_url %>">
+                      </td>
+                      <td>
+                        <%= item.gender %>
+                      </td>
+                      <td>
+                        <%= item.size %>
+                      </td>
+                      <td>
+                        <%= item.category %>
+                      </td>
+                      <td>
+                        <%= item.description %>
+                      </td>
+                      <td>
+                        $ <%= item.price_of_product/100 %>
+                      </td>
                       <td>
                         <form method="POST" id="product.id" action="seller/<%= item.id %>">
                           <button id="product" class="btn btn-primary">SOLD</button>
@@ -68,7 +82,7 @@
                       </td>
                       <td>
                         <form method="POST" action="/seller/delete/<%= item.id %>">
-                          <button id="btndelete" type="submit" class="btn btn-primary">DELETE</button>
+                          <button id="btndelete" type="submit" class="fa fa-trash"></button>
                         </form>
                       </td>
                       <% } else { %>
@@ -102,18 +116,33 @@
               <tbody>
                 <% for(let item of items) { %>
                   <tr>
-                    <td><%= item.id %></td>
-                    <td><%= item.photo_url %></td>
-                    <td><%= item.gender %></td>
-                    <td><%= item.size %></td>
-                    <td><%= item.category %></td>
-                    <td><%= item.description %></td>
+                    <td>
+                      <%= item.id %>
+                    </td>
+                    <td>
+                      <img src="<%= item.photo_url %>">
+                    </td>
+                    <td>
+                      <%= item.gender %>
+                    </td>
+                    <td>
+                      <%= item.size %>
+                    </td>
+                    <td>
+                      <%= item.category %>
+                    </td>
+                    <td>
+                      <%= item.description %>
+                    </td>
                     <% if (item.sold_date !==null) { %>
-                      <td class="sold" ><b>SOLD</b></td>
+                      <td class="sold">SOLD</td>
                       <% } else { %>
-                        <td><b>$ <%= item.price_of_product/100 %></b></td>
+                        <td>$ <%= item.price_of_product/100 %>
+                        </td>
                         <% } %>
-                    <td><%= item.sold_date %></td>
+                          <td>
+                            <%= item.sold_date %>
+                          </td>
                   </tr>
                   <% } %>
               </tbody>
@@ -161,7 +190,6 @@
                 <label for="price">PRICE:</label>
                 <input type="text" id="newPrice" name="price" placeholder=" Enter Price">
                 <br>
-
                 <button type="submit" id="newSubmit">CREATE NEW LISTING</button>
               </form>
             </div>

@@ -47,189 +47,99 @@
 }
 
 //-----Format Active Listings Tab-----//
-.table_active  {
-  font-size: 16pt;
-  font-weight: 600;
+table{
+  table-layout: auto;
+}
+
+.table_active {
+  border-collapse: collapse;
   padding: 0;
+  vertical-align: center;
+  text-align: center;
+  width: 90vw;
   background: rgb(235, 235, 235);
 }
 
 .table_active th {
   font-size: 14pt;
   font-weight: 600;
-  padding: 0;
-  height: 5em;
   background: rgb(235, 235, 235);
   vertical-align: center;
-  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 5px solid white;
 }
 
-.table_active tr {
-  font-size: 12pt;
-  font-weight: 200;
-  padding: 0;
-  height: 5em;
-  background: rgb(235, 235, 235);
-  vertical-align: center;
-  text-align: left;
+td {
+  display: table-cell;
+  vertical-align: middle;
+  border-bottom: 2px solid white;
+  padding: 5px;
 
-  border-bottom: 1px solid black;
+ }
+
+ td img{
+  width: 125px;
+  margin: auto;
 }
 
-.table_active td {
-word-wrap: break-word;
-}
-
-.table_active #id {
-  width: 2%;
-}
-
-.table_active #image {
-  width: 30%;
-}
-
-.table_active #gender {
-  width: 10%;
-}
-
-.table_active #size {
-  width: 2%;
-}
-
-.table_active #category {
-  width: 10%;
-}
-
-.table_active #description {
-  width: 30%;
-}
-
-.table_active #price {
-  width: 5%;
-}
-
-.table_active #price {
-  width: 5%;
-}
-
-.table_active #product.id {
-  width: 5%;
-}
-
-.table_active #delete {
-  width: 5%;
-}
-
-.table_active thead tr {
-  border-bottom: 2px;
-  border-color: #101010;
-  border-style: solid;
+tbody td {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .table_active #btndelete {
-background: black;
-font-family: poppins, sans-serif;
-color: white;
-height: 50px;
-width: 85px;
-font-size: 14pt;
-font-weight: 600;
-border-color: black;
+  color: #101010;
+  height: 25px;
+  width: 65px;
+  font-size: 20pt;
+  border: none;
 }
 
 .table_active #product {
   background: black;
   font-family: poppins, sans-serif;
   color: white;
-  height: 50px;
-  width: 85px;
-  font-size: 16pt;
+  height: 40px;
+  width: 75px;
+  font-size: 14pt;
   font-weight: 600;
-  background-color: rgb(153, 201, 202);
-  border-color: rgb(153, 201, 202);
+  border: none;
+}
 
-  }
+.sold {
+  color: red;
+}
 
 //-----Format All Listings Tab-----//
-.table_all  {
-  font-size: 16pt;
-  font-weight: 600;
+.table_all {
+  border-collapse: collapse;
   padding: 0;
+  vertical-align: center;
+  text-align: center;
+  width: 90vw;
   background: rgb(235, 235, 235);
 }
 
 .table_all th {
   font-size: 14pt;
   font-weight: 600;
-  padding: 0;
-  height: 5em;
   background: rgb(235, 235, 235);
   vertical-align: center;
-  text-align: left;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 5px solid white;
 }
 
-.table_all tr {
-  font-size: 12pt;
-  font-weight: 200;
-  padding: 0;
-  height: 5em;
-  background: rgb(235, 235, 235);
-  vertical-align: center;
-  text-align: left;
-
-  border-bottom: 1px solid black;
-}
-
-.table_all td {
-word-wrap: break-word;
-}
-
-.table_all #id {
-  width: 2%;
-}
-
-.table_all #image {
-  width: 50%;
-}
-
-.table_all #gender {
-  width: 10%;
-}
-
-.table_all #size {
-  width: 2%;
-}
-
-.table_all #category {
-  width: 10%;
-}
-
-.table_all #description {
-  width: 30%;
-}
-
-.table_all #price {
-  width: 5%;
-}
-
-.table_all #price {
-  width: 5%;
-}
-
-.table_all #sold {
-  width: 5%;
-}
-
-.table_all tbody tr {
-  border-bottom: 2px;
-  border-color: #101010;
-  border-style: solid;
+.sold {
+  color: red;
+  font-weight: 600;
 }
 
 //-----Format Create New Listing Tab-----//
 .container {
   background-color:rgb(235, 235, 235);
-  padding: 10%;
+  padding: 5%;
   align-content: center;
 }
 
@@ -296,24 +206,19 @@ word-wrap: break-word;
   border: 0;
 }
 
+//-----On Hover Pointer and Border Format-----//
 .container #newSubmit:hover {
   background-color:rgb(153, 201, 202);
 }
-
-.sold {
-  color: red;
-}
-
-//-----On Hover Pointer and Border Format-----//
 
 button:hover {
   cursor: pointer;
 }
 
 #product:hover {
-  border: 2px solid white;
+  background-color:rgb(153, 201, 202);
 }
 
 #btndelete:hover {
-  border: 2px solid white;
+  color: rgb(153, 201, 202);
 }
