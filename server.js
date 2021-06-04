@@ -98,6 +98,7 @@ app.post("/products/mens/:buyerid/:productid", (req, res) => {
     });
 });
 
+//sending email to seller
 app.post("/products/:buyerid/:productid/email", (req, res) => {
   const buyerId = req.params.buyerid;
   const productId = req.params.productid;
@@ -151,6 +152,7 @@ app.post("/products/womens/:buyerid/:productid", (req, res) => {
     });
 });
 
+//when the item is sold, time will update
 app.post("/seller/:productid", (req, res) => {
   const dateInNano = new Date();
   const year = dateInNano.getFullYear();
