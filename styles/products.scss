@@ -119,6 +119,25 @@ main {
 #email-body {
   margin-bottom: 16px;
 }
+
 .sold {
   color: red;
+}
+
+#dropdownPriceFilter:hover {
+  background-color:rgb(153, 201, 202);
+  cursor: pointer;
+}
+
+#dropdownPriceFilter {
+  background-color: #101010;
+  border-color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12pt;
+  font-weight: 400;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
 }

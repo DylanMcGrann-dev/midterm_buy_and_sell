@@ -299,9 +299,21 @@ word-wrap: break-word;
 .container #newSubmit:hover {
   background-color:rgb(153, 201, 202);
 }
+
 .sold {
   color: red;
 }
 
+//-----On Hover Pointer and Border Format-----//
 
+button:hover {
+  cursor: pointer;
+}
 
+#product:hover {
+  border: 2px solid white;
+}
+
+#btndelete:hover {
+  border: 2px solid white;
+}
