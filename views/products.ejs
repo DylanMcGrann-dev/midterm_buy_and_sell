@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- External Links -->
@@ -7,10 +8,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 
   <!-- Style Sheets -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -28,120 +36,124 @@
 
 <body>
   <%- include("partials/_header") %>
-  <div class="filterByPrice">
-  <div class="dropdown" >
-    <button
-    class="btn btn-outline-primary dropdown-toggle"
-    type="button"
-    id="dropdownPriceFilter"
-    data-toggle="dropdown"
-    aria-haspopup="true"
-    aria-expanded="false">
-      Filter by price
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownPriceFilter">
-      <li>
-        <a
-          class="dropdown-item"
-          href="/products/<%= filter === 'all' ? '' : filter %>?pricefilter=asc">
-          Low to High
-        </a>
-      </li>
-      <li>
-        <a
-          class="dropdown-item"
-          href="/products/<%= filter === 'all' ? '' : filter %>?pricefilter=desc">
-          High to Low
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
-  <main>
-    <!-- will include an if statement so filter pictures can be based off gender -->
-    <% if (filter === "mens" ) { %>
-    <span class="filterSpan">
-      <img class="filterStyle" src="\images\running_shoe.jpeg">
-      <img class="filterStyle" src="\images\mens_pants.jpeg">
-      <img class="filterStyle" src="\images\shirt.jpeg">
-      <img class="filterStyle" src="\images\mens_hoodie.jpeg">
-
-    </span>
-    <% } else if (filter === "womens") {%>
-      <span class="filterSpan">
-        <img class="filterStyle" src="\images\womens_shoe.jpeg">
-        <img class="filterStyle" src="\images\womens_shirt.jpeg">
-        <img class="filterStyle" src="\images\womens_leggings.jpeg">
-        <img class="filterStyle" src="\images\womens_hoodie.jpeg">
-
-      </span>
-    <% } else if (filter === "all") { %>
-    <span class="filterSpan">
-      <img class="filterStyle" src="\images\running_shoe.jpeg">
-      <img class="filterStyle" src="\images\womens_shirt.jpeg">
-      <img class="filterStyle" src="\images\womens_leggings.jpeg">
-      <img class="filterStyle" src="\images\mens_hoodie.jpeg">
-
-    </span>
-    <% } %>
-
-
-    <% for (let item of items) { %>
-    <div class="products-wrapper">
-    <span class="filterItems">
-      <div class="itemStyle">
-        <img  class="imgFix" src="<%= item.photo_url %>">
-          <div class="productInfo">
-            <span class="userSpanStyle"><%= item.username %></span>
-            <span class="description"><%= item.description %></span>
-            <% if (item.sold_date !== null) { %>
-              <span>SOLD</span>
-              <% } else { %>
-                <span>Price : $ <%= item.price_of_product/100 %></span>
-              <% } %>
-
-            <div class="buttonsNprice" >
-              <% if (filter === "all") { %>
-                <div>
-                  <form class="email-action" method="POST" action="/products/<%= buyerId %>/<%= item.id %>/email">
-                    <textarea placeholder="message seller" id="email-body" name="email-body" ></textarea>
-                    <button class="buyNow" type="submit">send message</button>
-                  </form>
-                </div>
-                <form class="add-favorite-action" method="POST" action="/products/<%= buyerId %>/<%= item.id %>">
-                  <button class="buyNow" type="submit">add to favorites</button>
-                </form>
-              <% } else if (filter === "womens") { %>
-                <div>
-                  <form class="email-action" method="POST" action="/products/<%= buyerId %>/<%= item.id %>/email">
-                    <textarea placeholder="message seller" id="email-body" name="email-body" ></textarea>
-                    <button class="buyNow" type="submit" >send message</button>
-                  </form>
-                </div>
-
-                <form class="add-favorite-action" method="POST" action="/products/womens/<%= buyerId %>/<%= item.id %>">
-                  <button class="buyNow" type="submit">add to favorites</button>
-                </form>
-              <% } else if (filter === "mens") { %>
-                <div>
-                  <form class="email-action" method="POST" action="/products/<%= buyerId %>/<%= item.id %>/email">
-                    <textarea placeholder="message seller" id="email-body" name="email-body" ></textarea>
-                    <button class="buyNow" type="submit" >send message</button>
-                  </form>
-                </div>
-
-                <form class="add-favorite-action" method="POST" action="/products/mens/<%= buyerId %>/<%= item.id %>">
-                  <button class="buyNow" type="submit">add to favorites</button>
-                </form>
-                <% } %>
-            </div>
-          </div>
+    <div class="filterByPrice">
+      <div class="dropdown">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownPriceFilter"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Filter by price
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownPriceFilter">
+          <li>
+            <a class="dropdown-item" href="/products/<%= filter === 'all' ? '' : filter %>?pricefilter=asc">
+              Low to High
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/products/<%= filter === 'all' ? '' : filter %>?pricefilter=desc">
+              High to Low
+            </a>
+          </li>
+        </ul>
       </div>
-    </span>
-    <% } %>
-  </div>
-  </main>
-  <%- include("partials/_footer") %>
-</body>
-</html>
+    </div>
+    <main>
+      <!-- will include an if statement so filter pictures can be based off gender -->
+      <% if (filter==="mens" ) { %>
+        <span class="filterSpan">
+          <img class="filterStyle" src="\images\running_shoe.jpeg">
+          <img class="filterStyle" src="\images\mens_pants.jpeg">
+          <img class="filterStyle" src="\images\shirt.jpeg">
+          <img class="filterStyle" src="\images\mens_hoodie.jpeg">
 
+        </span>
+        <% } else if (filter==="womens" ) {%>
+          <span class="filterSpan">
+            <img class="filterStyle" src="\images\womens_shoe.jpeg">
+            <img class="filterStyle" src="\images\womens_shirt.jpeg">
+            <img class="filterStyle" src="\images\womens_leggings.jpeg">
+            <img class="filterStyle" src="\images\womens_hoodie.jpeg">
+
+          </span>
+          <% } else if (filter==="all" ) { %>
+            <span class="filterSpan">
+              <img class="filterStyle" src="\images\running_shoe.jpeg">
+              <img class="filterStyle" src="\images\womens_shirt.jpeg">
+              <img class="filterStyle" src="\images\womens_leggings.jpeg">
+              <img class="filterStyle" src="\images\mens_hoodie.jpeg">
+
+            </span>
+            <% } %>
+
+
+              <% for (let item of items) { %>
+                <div class="products-wrapper">
+                  <span class="filterItems">
+                    <div class="itemStyle">
+                      <img class="imgFix" src="<%= item.photo_url %>">
+                      <div class="productInfo">
+                        <span class="userSpanStyle">
+                          <%= item.username %>
+                        </span>
+                        <span class="description">
+                          <%= item.description %>
+                        </span>
+                        <% if (item.sold_date !==null) { %>
+                          <span class="sold" ><b>SOLD</b></span>
+                          <% } else { %>
+                            <span><b>Price : $ <%= item.price_of_product/100 %></b></span>
+                            <% } %>
+
+                              <div class="buttonsNprice">
+                                <% if (filter==="all" ) { %>
+                                  <div>
+                                    <form class="email-action" method="POST"
+                                      action="/products/<%= buyerId %>/<%= item.id %>/email">
+                                      <textarea placeholder="message seller" id="email-body"
+                                        name="email-body"></textarea>
+                                      <button class="buyNow" type="submit">send message</button>
+                                    </form>
+                                  </div>
+                                  <form class="add-favorite-action" method="POST"
+                                    action="/products/<%= buyerId %>/<%= item.id %>">
+                                    <button class="buyNow" type="submit">add to favorites</button>
+                                  </form>
+                                  <% } else if (filter==="womens" ) { %>
+                                    <div>
+                                      <form class="email-action" method="POST"
+                                        action="/products/<%= buyerId %>/<%= item.id %>/email">
+                                        <textarea placeholder="message seller" id="email-body"
+                                          name="email-body"></textarea>
+                                        <button class="buyNow" type="submit">send message</button>
+                                      </form>
+                                    </div>
+
+                                    <form class="add-favorite-action" method="POST"
+                                      action="/products/womens/<%= buyerId %>/<%= item.id %>">
+                                      <button class="buyNow" type="submit">add to favorites</button>
+                                    </form>
+                                    <% } else if (filter==="mens" ) { %>
+                                      <div>
+                                        <form class="email-action" method="POST"
+                                          action="/products/<%= buyerId %>/<%= item.id %>/email">
+                                          <textarea placeholder="message seller" id="email-body"
+                                            name="email-body"></textarea>
+                                          <button class="buyNow" type="submit">send message</button>
+                                        </form>
+                                      </div>
+
+                                      <form class="add-favorite-action" method="POST"
+                                        action="/products/mens/<%= buyerId %>/<%= item.id %>">
+                                        <button class="buyNow" type="submit">add to favorites</button>
+                                      </form>
+                                      <% } %>
+                              </div>
+                      </div>
+                    </div>
+                  </span>
+                  <% } %>
+                </div>
+    </main>
+    <%- include("partials/_footer") %>
+</body>
+
+</html>
