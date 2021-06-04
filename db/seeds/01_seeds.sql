@@ -1,9 +1,9 @@
 INSERT INTO users (name, email)
-VALUES ('Dominic Parks', 'hervieb@hotmail.com'),
-('Louisa Meyer', 'dylanmcgrannit@gmail.com'),
+VALUES ('Dominic Parks', 'ksm5611@naver.com'),
+('Louisa Meyer', 'ksm5611@naver.com'),
 ('Lydia Greer', 'kim.sumin.wat2014@gmail.com'),
-('Mitchell Moreno', 'dylanmcgrannit@gmail.com'),
-('Eva Stanley', 'hervieb@hotmail.com');
+('Mitchell Moreno', 'ksm5611@naver.com'),
+('Eva Stanley', 'ksm5611@naver.com');
 
 INSERT INTO products (user_id, gender, photo_url, description, size, category, price_of_product, sold_date)
 VALUES (5, 'women', 'https://cdn.shopify.com/s/files/1/0932/1356/products/Mar25-2021-Ecomm-Monica-24_800x.jpg?v=1619108093', 'Terry Cropped Hoodie in Moss', 'L', 'Hoodies', 7599, NULL),
