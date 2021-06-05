@@ -14,6 +14,11 @@ Once an item has been sold the seller can go to their profiles page and mark an 
 - View all listings (includes both active and sold items)
 - Create a new listing
 
+## Authors
+- Hervinder Bhandal
+- Dylan McGrann
+_ Sumin Kim
+
 ## Final Product
 !["Screenshot of Home Page"](https://github.com/DylanMcGrann-dev/midterm_buy_and_sell/blob/master/docs/Home%20Page.png?raw=true)
 !["Screenshot of Products Page"](https://github.com/DylanMcGrann-dev/midterm_buy_and_sell/blob/master/docs/View%20Products.png?raw=true)
