@@ -1,16 +1,18 @@
-LHL Node Skeleton
-=========
+# BUY & SELL WEBSITE
 
-## Project Setup
+## ABOUT BUY & SELL
+Buy & Sell is a convenient destination for people to discover, buy and sell clothing. From the homepage users can select to view listings, mens, womens and all. There is also a nice scroll at the bottom of the screen showing the most recent featured products.
 
-The following steps are only for _one_ of the group members to perform.
+ Users are able to filter their results by mens, womens, all and also filter by price, listing items from High to Low or Low to High.
 
-1. Create your own copy of this repo using the `Use This Template` button, ideally using the name of your project. The repo should be marked Public
-2. Verify that the skeleton code now shows up in your repo on GitHub, you should be automatically redirected
-3. Clone your copy of the repo to your dev machine
-4. Add your team members as collaborators to the project so that they can push to this repo
-5. Let your team members know the repo URL so that they use the same repo (they should _not_ create a copy/fork of this repo since that will add additional workflow complexity to the project)
+Users have the ability to add items to their favorites allowing them to come back at a later date when they are ready to purchase. The also have the ability to remove items from their favorites.
 
+If interested in an item users can message the seller which will be sent via sendgrid mail. The negotiations can continue via the buyer and sellers personal email.
+
+Once an item has been sold the seller can go to their profiles page and mark an item as sold. A seller is able to: 
+- View active listings (includes marking an item as sold and deleting an active listing)
+- View all listings (includes both active and sold items)
+- Create a new listing
 
 ## Getting Started
 
@@ -41,3 +43,12 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- @sendgrid/mail: 7.4.4
+- body-parser: 1.19.0
+- chalk: 2.4.2
+- dotenv: 2.0.0
+- ejs": 2.6.2
+- express: 4.17.1
+- morgan: 1.9.1
+- node-sass-middleware: 0.11.0
+
