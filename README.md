@@ -14,6 +14,14 @@ Once an item has been sold the seller can go to their profiles page and mark an 
 - View all listings (includes both active and sold items)
 - Create a new listing
 
+## Final Product
+!["Screenshot of Home Page"](https://github.com/DylanMcGrann-dev/midterm_buy_and_sell/blob/master/docs/Home%20Page.png?raw=true)
+!["Screenshot of Products Page"](https://github.com/DylanMcGrann-dev/midterm_buy_and_sell/blob/master/docs/View%20Products.png?raw=true)
+!["Screenshot of Favorites/ Wishlist Page"](https://github.com/DylanMcGrann-dev/midterm_buy_and_sell/blob/master/docs/Favorites%20Page.png?raw=true)
+!["Screenshot of Favorites/ Active Listings Page"](https://github.com/DylanMcGrann-dev/midterm_buy_and_sell/blob/master/docs/Active%20Listings%20Page.png?raw=true)
+!["Screenshot of Favorites/ All Listings Page"](https://github.com/DylanMcGrann-dev/midterm_buy_and_sell/blob/master/docs/All%20Listings%20Page.png?raw=true)
+!["Screenshot of Favorites/ Create a New Listing Page"](https://github.com/DylanMcGrann-dev/midterm_buy_and_sell/blob/master/docs/Create%20a%20New%20Listing%20Page.png?raw=true)
+
 ## Getting Started
 
 1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
