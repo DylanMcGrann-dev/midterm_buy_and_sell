@@ -17,7 +17,7 @@ Once an item has been sold the seller can go to their profiles page and mark an 
 ## Authors
 - Hervinder Bhandal
 - Dylan McGrann
-_ Sumin Kim
+- Sumin Kim
 
 ## Final Product
 !["Screenshot of Home Page"](https://github.com/DylanMcGrann-dev/midterm_buy_and_sell/blob/master/docs/Home%20Page.png?raw=true)
